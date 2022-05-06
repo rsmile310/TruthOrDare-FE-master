@@ -1,0 +1,33 @@
+.sliderBox {
+  margin-top: 20px;
+  .avatarImage {
+    width: 75%;
+    height: auto;
+    margin: auto;
+  }
+  .slick-center {
+    position: relative;
+  }
+  .slick-center::after {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 0px;
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    background-color: yellow;
+    z-index: -1;
+  }
+  .slick-list{
+    height: 70px;
+  }
+  .slick-track{
+    height: 100%;
+  }
+  .slick-slide{
+    display: flex !important;
+    height: 100%;
+    align-items: center;
+  }
+}

@@ -1,0 +1,23 @@
+.createGamePage {
+    width: 100%;
+    height: 100vh;
+    display: inline-block;
+    background-image: url(/images/FRA-Second-Player---Join-Game---BACKGROUND.jpg);
+    background-size: cover;
+    background-position: center;
+    .buttonBox {
+      position: absolute;
+      left: 0;
+      bottom: 26px;
+      width: 100%;
+      text-align: center;
+      button {
+        font-family: "IntroLipton-Black";
+        font-size: 24px;
+        width: 302px;
+        height: 40px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  

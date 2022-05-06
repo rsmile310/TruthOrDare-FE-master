@@ -1,0 +1,53 @@
+.btnBox {
+  position: absolute;
+  bottom: 37px;
+  left: 0;
+  width: 100%;
+  button {
+    height: 40px;
+    font-size: 24px;
+  }
+}
+.playerListBox {
+  position: absolute;
+  bottom: 96px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  & > div {
+    display: flex;
+    flex-wrap: wrap;
+    width: 302px;
+    height: 136px;
+    border-radius: 16px;
+    background-color: #fff;
+  }
+}
+.playerNameBox {
+  display: flex;
+  margin: 6px 8px;
+  height: fit-content;
+  & img {
+    z-index: 2;
+  }
+  .playerName {
+    width: 49px;
+    height: 19px;
+    border-radius: 10px;
+    margin-left: -16px !important;
+    z-index: 1;
+    background-color: #253786;
+    color: #fff;
+    font-size: 11px;
+    margin: auto 0;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    p {
+      padding-left: 16px;
+    }
+  }
+}
+
+

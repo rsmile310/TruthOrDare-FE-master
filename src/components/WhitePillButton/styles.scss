@@ -1,0 +1,28 @@
+.white-pill-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .white-pill-button {
+    width: 302px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    border: none;
+    background-color: white;
+    color: #029ddf;
+    -webkit-box-shadow: 6px 6px 0px 0px rgba(40, 52, 139, 1);
+    -moz-box-shadow: 6px 6px 0px 0px rgba(40, 52, 139, 1);
+    box-shadow: 6px 6px 0px 0px rgba(40, 52, 139, 1);
+    cursor: pointer;
+    font-family: "IntroLipton-Black";
+  }
+}
+.end {
+  justify-content: end !important;
+  position: static;
+  align-items: end !important;
+}

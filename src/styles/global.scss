@@ -1,0 +1,57 @@
+@import "./mixins";
+@font-face {
+  font-family: "IntroLipton-Black";
+  font-weight: normal;
+  font-style: normal;
+  src: url("fonts/IntroLipton-Black/IntroLipton-Black.woff2");
+}
+@font-face {
+  font-family: "LiptonHighlight";
+  font-weight: 400;
+  font-style: normal;
+  src: url("fonts/LiptonHighlight/LiptonHighlight-Textured.otf");
+}
+@font-face {
+  font-family: "IntroLipton-SemiBold";
+  font-weight: 700;
+  font-style: normal;
+  src: url("fonts/IntroLipton-SemiBold/IntroLipton-SemiBold.woff2");
+}
+@font-face {
+  font-family: "IntroLipton-Bold";
+  font-weight: 900;
+  font-style: normal;
+  src: url("fonts/IntroLipton-Bold/IntroLipton-Bold.woff2");
+}
+:root {
+  --blue: #4097dd;
+  --white: white;
+}
+input {
+  outline: none;
+}
+::placeholder {
+  color: #009fe3;
+}
+body {
+  color: var(--light);
+  margin: 0;
+}
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+label {
+  font-family: "IntroLipton-Black";
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+input {
+  font-family: "IntroLipton-SemiBold";
+  color: #009fe3;
+  padding: 16px 18px;
+  border: none;
+  border-radius: 100px;
+}

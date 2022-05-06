@@ -1,0 +1,32 @@
+// Mixins
+$breakpoint-xs: 767px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 992px;
+$breakpoint-lg: 1200px;
+$breakpoint-xl: 1500px;
+
+@mixin breakpoint($class) {
+  @if $class == xs {
+    @media (max-width: $breakpoint-xs) {
+      @content;
+    }
+  } @else if $class == sm {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $class == md {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $class == lg {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $class == xl {
+    @media (min-width: $breakpoint-xl) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint mixin supports: xs, sm, md, lg";
+  }
+}
