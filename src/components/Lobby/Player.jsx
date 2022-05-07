@@ -6,7 +6,7 @@ const Player = (props) => {
     <div className={styles.playerNameBox}>
       <img
         width="51px"
-        height="53px"
+        height="51px"
         src={avatar}
         alt=""
       />

@@ -18,7 +18,7 @@ export default function AvatarSlider() {
       <Slider {...settings}>
         {AvatarConfig.map((item, index) => (
           <div key={index}>
-            <img src={item.path} className="avatarImage" alt="" />
+            <img src={item.path} width='51px' height='51px' className="avatarImage" alt="" />
           </div>
         ))}
       </Slider>

@@ -14,7 +14,7 @@ const WhitePillButton = (props) => {
     <>
       <div className="white-pill-button-container">
         <button className="white-pill-button" onClick={handleClick}>
-          <p>{text}</p>
+          <p dangerouslySetInnerHTML={{__html: text}} />
         </button>
       </div>
     </>

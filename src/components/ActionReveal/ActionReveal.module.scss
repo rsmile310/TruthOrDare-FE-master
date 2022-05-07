@@ -1,0 +1,39 @@
+.actionReveal {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  h1 {
+    position: fixed;
+    top: 19%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-family: "LiptonHighlight";
+    font-size: 77px;
+    line-height: 70px;
+    margin: 0;
+  }
+  h6{
+      font-family: 'IntroLipton-black';
+      font-size: 24px;
+      color: #fff;
+      position: fixed;
+      top: 45%;
+      text-align: center;
+      padding: 0 16px;
+      margin: 0;
+  }
+  .btnBox {
+    position: fixed;
+    left: 0;
+    bottom: 49px;
+    width: 100%;
+    text-align: center;
+    button {
+      height: 40px;
+      font-family: 'IntroLipton-black';
+      font-size: 24px !important;
+    }
+  }
+}

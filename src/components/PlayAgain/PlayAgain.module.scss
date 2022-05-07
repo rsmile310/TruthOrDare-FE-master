@@ -1,0 +1,18 @@
+.btnBox {
+  position: fixed;
+  bottom: 49px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  button {
+    font-family: "IntroLipton-Black";
+    font-size: 24px;
+    height: 40px;
+  }
+  button:first-child {
+    margin-bottom: 20px;
+  }
+}
+.textBox {
+  margin: 0 auto;
+}

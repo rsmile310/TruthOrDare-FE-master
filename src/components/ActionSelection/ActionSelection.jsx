@@ -1,34 +1,28 @@
-import { useContext } from 'react';
-import styles from './ActionSelection.module.scss';
-import { SocketContext } from '../../providers/Socket'
+import { useContext } from "react";
+import styles from "./ActionSelection.module.scss";
+import { SocketContext } from "../../providers/Socket";
+import TruthWait from "./TruthWait";
+import TruthSelect from "./TruthSelect";
+import Navbar from "../Navbar";
 
-const ActionSelection = ({currentPlayer, actions, truthOrDare, timer}) => {
-    const socket = useContext(SocketContext)
+const ActionSelection = ({ currentPlayer, actions, truthOrDare, timer }) => {
+  const socket = useContext(SocketContext);
 
-    const actionSelected = (id) => {
-        socket.emit('action-selected', id);
-        console.log(timer)
-    }
+  const actionSelected = (id) => {
+    socket.emit("action-selected", id);
+    console.log(id);
+  };
 
-    return (
-        <div>
-            {currentPlayer.socketId == socket.id ? (
-                <>
-                    <p>Time for a {truthOrDare}</p>
-                </>
-                
-            ) : (
-                <>
-                    {actions.map((action, i) => (
-                        <li key={i}>
-                            <button onClick={(() =>actionSelected(action.id))}>{action.text}</button>
-                        </li>
-                    ))}
-                </>
-            )}
-            <p>{timer}</p>
-        </div>
-    )
-}
+  return (
+    <div>
+      <Navbar />
+      {currentPlayer.socketId == socket.id ? (
+        <TruthWait />
+      ) : (
+        <TruthSelect actions={actions} actionSelected={(id)=>actionSelected(id)} />
+      )}
+    </div>
+  );
+};
 
 export default ActionSelection;

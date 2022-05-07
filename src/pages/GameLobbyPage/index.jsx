@@ -36,6 +36,7 @@ const GameLobbyPage = (props) => {
     >
       <Navbar />
       <HeaderText text={data.headerText} />
+      {lobbyOwner && <img className="qrcode" width='132px' height='132px' src="/images/other/QR Code@3x.png" />}
       {!lobbyOwner ? (
         <div className="loadingIconBox">
           <LoadingIcon />

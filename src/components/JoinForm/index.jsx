@@ -7,7 +7,9 @@ const JoinForm = ({ handleNameSubmit }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const myName = event.target.elements.name.value.trim();
-    handleNameSubmit(myName);
+    const temp = document.querySelector(".slick-center img");
+    const tempPath = temp.getAttribute("src");
+    handleNameSubmit(myName, tempPath);
   };
   return (
     <div

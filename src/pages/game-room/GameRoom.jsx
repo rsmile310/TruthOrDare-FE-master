@@ -53,10 +53,12 @@ const GameRoom = () => {
   const [action, setAction] = useState(defaultAction);
   const [gameRoom, setGameRoom] = useState(defaultGameRoom);
 
-  const handleNameSubmit = (data) => {
-    const myName = data;
+  const handleNameSubmit = (name, avatar) => {
+    const myName = name;
     localStorage.setItem(`tod-name-${roomId}`, myName);
+    localStorage.setItem('avatar', avatar);
     setName(myName);
+    setAvatar(avatar);
   };
 
   useEffect(() => {
@@ -181,7 +183,7 @@ const GameRoom = () => {
                 />
               )}
               {gameRoom.room.gameStatus === GAME_STATUS.RATING && (
-                <ActionRating currentPlayer={gameRoom.currentPlayer} />
+                <ActionRating currentPlayer={gameRoom.currentPlayer} truthOrDare={gameRoom.room.truthOrDare} />
               )}
               {gameRoom.room.gameStatus === GAME_STATUS.ROUND_END && (
                 <EndRound currentPlayer={gameRoom.currentPlayer} />

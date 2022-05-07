@@ -1,0 +1,16 @@
+.LoadingBox {
+  position: fixed;
+  bottom: 34px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  p {
+    font-family: "IntroLipton-SemiBold";
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+}

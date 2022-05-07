@@ -1,0 +1,68 @@
+.truthOrDareWait {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  .playerNameBox {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    p {
+      font-family: "IntroLipton-Black";
+      font-size: 18px;
+      margin: 0;
+    }
+    h1 {
+      font-family: "LiptonHighlight";
+      font-size: 77px;
+      line-height: 70px;
+      margin: 0;
+    }
+  }
+}
+.TruthOrDareStart{
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  .btnBox{
+    position: fixed;
+    bottom: 49px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    button{
+      font-size: 24px;
+      height: 40px;
+      text-transform: uppercase;
+    }
+    h2{
+      font-family: 'LiptonHighlight';
+      font-size: 32px;
+      margin: 19px auto;
+    }
+  }
+  .textBox {
+    position: absolute;
+    top: 36%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    p {
+      font-family: "IntroLipton-Black";
+      font-size: 18px;
+    }
+    h1 {
+      font-family: "LiptonHighlight";
+      font-size: 77px;
+      line-height: 70px;
+      margin: 0;
+    }
+  }
+}
