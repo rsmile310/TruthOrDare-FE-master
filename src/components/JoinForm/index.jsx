@@ -31,6 +31,7 @@ const JoinForm = ({ handleNameSubmit }) => {
               name="name"
               pattern=".{2,}"
               title="Enter a name longer than 2 characters"
+              autoComplete="off"
               required
             />
           </div>

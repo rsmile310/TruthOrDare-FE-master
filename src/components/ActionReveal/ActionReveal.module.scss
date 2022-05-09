@@ -14,15 +14,18 @@
     line-height: 70px;
     margin: 0;
   }
-  h6{
-      font-family: 'IntroLipton-black';
-      font-size: 24px;
-      color: #fff;
-      position: fixed;
-      top: 45%;
-      text-align: center;
-      padding: 0 16px;
-      margin: 0;
+  .texBox {
+    position: fixed;
+    top: 45%;
+    width: 100%;
+    text-align: center;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+  h6 {
+    font-family: "IntroLipton-black";
+    font-size: 24px;
+    color: #fff;
   }
   .btnBox {
     position: fixed;
@@ -32,7 +35,7 @@
     text-align: center;
     button {
       height: 40px;
-      font-family: 'IntroLipton-black';
+      font-family: "IntroLipton-black";
       font-size: 24px !important;
     }
   }

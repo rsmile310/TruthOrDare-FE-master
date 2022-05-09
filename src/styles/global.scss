@@ -64,4 +64,23 @@ input {
   height: 100vh;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
+// html, body, body>div{
+//   position: fixed;
+//   left: 0;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   width: 100%;
+//   height: 100vh;
+// }
+// .tooltip-keyboard .b-tooltip .is-dark .is-top .is-medium .is-multiline{
+//  position: fixed !important;
+//  bottom: 0 !important;
+// }
+// .b-tooltip[data-v-33bf9f99]{
+//   position: fixed !important;
+//   display: block;
+//   width: 100%;
+// }

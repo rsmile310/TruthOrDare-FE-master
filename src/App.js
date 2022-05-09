@@ -7,8 +7,10 @@ import GameRoom from "./pages/game-room/GameRoom";
 import { SocketProvider } from "./providers/Socket";
 import HomePage from "./pages/HomePage";
 import CreateHomePgae from "./pages/CreateHomePage";
+import { useEffect } from "react";
 
 function App() {
+
   return (
     <BrowserRouter>
       <Routes>

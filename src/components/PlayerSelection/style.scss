@@ -100,7 +100,6 @@
 
     .circle-container {
       @include on-circle($item-count: 6, $circle-size: 304px, $item-size: 5em);
-
       position: relative;
       padding: 0;
     }

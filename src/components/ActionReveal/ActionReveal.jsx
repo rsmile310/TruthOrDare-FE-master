@@ -22,11 +22,13 @@ const ActionReveal = ({ currentPlayer, action, truthOrDare }) => {
       <Navbar />
       <div>
         <h1>{currentPlayer.name}</h1>
-        <h6>
-          Your {truthOrDare} is
-          <br />
-          {action.text}
-        </h6>
+        <div className={styles.texBox}>
+          <h6>
+            Your {truthOrDare} is
+            <br />
+            {action.text}
+          </h6>
+        </div>
         <div className={styles.btnBox}>
           {currentPlayer.socketId == socket.id && (
             <WhitePillButton
