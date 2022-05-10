@@ -63,6 +63,8 @@ const PlayerSelection = ({ players, currentPlayer }) => {
   // const randomFloat = (min = 4, max = 6) => {
   //   return Math.random() * (max - min + 1) + min;
   // };
+
+  
   return (
     <div
       className="playerSelBox"

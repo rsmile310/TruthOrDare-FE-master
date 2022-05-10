@@ -1,11 +1,14 @@
 import styles from './EndRound.module.scss'
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { SocketContext } from "../../providers/Socket";
 import LoadingTextIcon from "../LoadingTextIcon";
 import Navbar from "../Navbar";
 import WhitePillButton from '../WhitePillButton';
 
 const EndRound = ({ currentPlayer }) => {
+  useEffect(()=>{
+    console.log(currentPlayer)
+  },[])
   const socket = useContext(SocketContext);
     console.log(socket)
   const nextRound = () => {

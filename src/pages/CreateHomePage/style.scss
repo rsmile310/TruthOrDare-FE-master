@@ -17,4 +17,117 @@
       margin-bottom: 20px;
     }
   }
+
+  .spinBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    & > div {
+      position: relative;
+    }
+    .bottleBox {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .spinCircle {
+      width: 304px;
+      height: auto;
+      max-width: 100%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      & > canvas {
+        transform-origin: (50%, 50%);
+        // transform: rotate(30deg);
+      }
+    }
+    .bottle {
+      width: 51px;
+      height: 148px;
+      display: block;
+      transition: all ease-in-out 5000;
+    }
+    .rotate{
+      transition: all ease-in-out 5000;
+    }
+    .rotate {
+      animation-name: animationRotation;
+      animation-duration: 0.5s;
+      animation-timing-function: linear;
+      animation-delay: 0s;
+      animation-iteration-count: infinite;
+      animation-direction: normal;
+      animation-play-state: paused;
+    }
+    .active {
+      animation-play-state: running;
+    }
+
+    @keyframes animationRotation {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    // mixing for arranging the list items on a circle
+    // based on Hugo Giraudel and Ana Tudor work
+    @mixin on-circle($circle-size, $item-size, $offset: 90) {
+      width: $circle-size;
+      height: $circle-size;
+
+      li {
+        width: $item-size;
+        height: $item-size;
+        margin: -($item-size / 2);
+        $angle: (360 / 6);
+        $rot: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 14px;
+        color: #fff;
+        & > div {
+          text-align: center;
+          transform: rotate(90deg);
+          p {
+            margin-bottom: 4px;
+          }
+        }
+
+        // @for $i from 1 through $item-count {
+        //   &:nth-of-type(#{$i}) {
+        //     transform: rotate($rot * 1deg - $offset+30deg)
+        //       translate($circle-size / 3)
+        //       // rotate($rot * -1deg + $offset);
+        //       rotate(90deg);
+        //   }
+
+        //   $rot: $rot + $angle;
+        // }
+      }
+    }
+
+    .circle-container {
+      @include on-circle($circle-size: 304px, $item-size: 5em);
+      position: relative;
+      padding: 0;
+    }
+
+    //cosmetic
+    * {
+      box-sizing: border-box;
+    }
+  }
 }
