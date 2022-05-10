@@ -51,31 +51,7 @@
       width: 51px;
       height: 148px;
       display: block;
-      transition: all ease-in-out 5000;
-    }
-    .rotate{
-      transition: all ease-in-out 5000;
-    }
-    .rotate {
-      animation-name: animationRotation;
-      animation-duration: 0.5s;
-      animation-timing-function: linear;
-      animation-delay: 0s;
-      animation-iteration-count: infinite;
-      animation-direction: normal;
-      animation-play-state: paused;
-    }
-    .active {
-      animation-play-state: running;
-    }
-
-    @keyframes animationRotation {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
+      transition: all ease-in-out 5000ms;
     }
 
     // mixing for arranging the list items on a circle

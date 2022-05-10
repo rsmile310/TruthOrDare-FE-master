@@ -3,9 +3,25 @@ import { PLAYER_STATUS } from "../../const";
 import { SocketContext } from "../../providers/Socket";
 import Navbar from "../Navbar";
 import { useEffect, useRef, useState } from "react";
+import { Pie, Doughnut } from "react-chartjs-2";
+import { Chart, ArcElement } from "chart.js";
+Chart.register(ArcElement);
 
 const PlayerSelection = ({ players, currentPlayer }) => {
-  const [data, setData] = useState("");
+  const [randomVal, setRandomVal] = useState("");
+  const [playerData, setPlayerData] = useState([]);
+  const [style, setStyle] = useState({});
+
+  const background = [
+    "#9D0A89",
+    "#B21F00",
+    "#E9DE00",
+    "#2FDE00",
+    "#00A6B4",
+    "#6800B4",
+    "#1B2A3E",
+    "#EF6C00",
+  ];
   const defaultPlayers = [
     {
       name: "Alex",
@@ -13,58 +29,87 @@ const PlayerSelection = ({ players, currentPlayer }) => {
     },
     {
       name: "Simon",
-      avatar: "/images/Face 1.png",
+      avatar: "/images/avatar/Face 2.png",
     },
     {
       name: "Sten",
-      avatar: "/images/Face 1.png",
+      avatar: "/images/avatar/Face 3.png",
     },
     {
-      name: "James",
-      avatar: "/images/Face 1.png",
-    },
-    {
-      name: "Olivia",
-      avatar: "/images/Face 1.png",
+      name: "Erika",
+      avatar: "/images/avatar/Face 4.png",
     },
     {
       name: "Valentyna",
-      avatar: "/images/Face 1.png",
+      avatar: "/images/avatar/Face 4.png",
+    },
+    {
+      name: "James",
+      avatar: "/images/avatar/Face 4.png",
     },
   ];
+
+  const defaultdata = {
+    datasets: [
+      {
+        backgroundColor: [],
+        data: [],
+      },
+    ],
+  };
+  const [state, setState] = useState(defaultdata);
+
   let bottle = useRef(null);
-  let AMOUNT_OF_ITEMS = 6; // change this if there is a different amount of items
+  let AMOUNT_OF_ITEMS = defaultPlayers.length; // change this if there is a different amount of items
   let segment_width = 360 / AMOUNT_OF_ITEMS;
+  let random;
   useEffect(() => {
-    setTimeout(() => spin(), 5000);
+    random = Math.random() * 360;
+    setRandomVal(random);
+
+    let temp_state = [...defaultPlayers];
+    let temp_state_chart = defaultdata;
+    let rot = -90;
+    temp_state.map((e, index) => {
+      temp_state[index] = { ...temp_state[index], rot: `${rot}` };
+      rot = rot + segment_width;
+      temp_state_chart.datasets[0].backgroundColor[index] = background[index];
+      temp_state_chart.datasets[0].data[index] = 1;
+    });
+    setPlayerData(temp_state);
+    setState(temp_state_chart);
+    setTimeout(() => spin(), 3000);
   }, []);
+
   const spin = () => {
-    setData(true);
-    setTimeout(() => stop(), 8000);
+    const randomAngle = Math.random() * 360 + 3600 + "deg";
+    setStyle({ transform: `rotate(${randomAngle})` });
+    setTimeout(() => stop(), 5000);
   };
   const stop = () => {
-    setData(false);
     let matrix = getComputedStyle(bottle.current).transform;
     let values = matrix.split("(")[1];
     values = values.split(")")[0];
     values = values.split(",");
-    let angle = Math.round(Math.atan2(values[1], values[0]) * (180 / Math.PI));
-
-    if (angle < 0) {
-      angle = Math.abs(180 + angle) + 180;
+    let angle =
+      Math.round(Math.atan2(values[1], values[0]) * (180 / Math.PI)) + random;
+    console.log(random);
+    if (angle > 360) {
+      angle = angle - 360;
     }
-
-    // check which item the bottle is pointing to
+    console.log(angle);
+    if (angle < 0) {
+      angle = 360 + angle;
+    }
     let winner = Math.ceil((angle + segment_width / 2) / segment_width);
-    if (winner == 7) winner = 1;
+    if (winner === 7) winner = 1;
     console.log(defaultPlayers[Number(winner - 1)]);
   };
-
-  // const randomFloat = (min = 4, max = 6) => {
-  //   return Math.random() * (max - min + 1) + min;
+  // const randomFloat = (min = 0, max = 360) => {
+  //   setRandomVal(Math.random() * (max - min + 1) + min);
+  //   return(Math.random() * (max - min + 1) + min)
   // };
 
-  
   return (
     <div
       className="playerSelBox"
@@ -77,31 +122,44 @@ const PlayerSelection = ({ players, currentPlayer }) => {
       <div className="spinBox">
         <div>
           <ul className="circle-container">
-            {defaultPlayers.map((e, index) => (
-              <li key={index}>
+            {playerData.map((e, index) => (
+              <li
+                key={index}
+                style={{
+                  transform: `rotate(${e.rot + "deg"}) translate(100px)`,
+                }}
+              >
                 <div>
                   <p className="my-0">{e.name}</p>
-                  <img
-                    width="51px"
-                    height="51px"
-                    src="/images/avatar/Face 1.png"
-                  />
+                  <img width="51px" height="51px" src={e.avatar} />
                 </div>
               </li>
             ))}
           </ul>
           <div className="bottleBox">
-            <img
-              ref={bottle}
-              className={`bottle rotate ${data ? "active" : ""}`}
-              src="/images/other/bottle1.png"
+            <div style={{ transform: `rotate(${randomVal + "deg"})` }}>
+              <img
+                ref={bottle}
+                className="bottle"
+                src="/images/other/bottle1.png"
+                style={style}
+              />
+            </div>
+          </div>
+          <div className="spinCircle">
+            <Pie
+              data={state}
+              options={{
+                legend: {
+                  display: true,
+                  position: "right",
+                },
+                animation: false,
+                borderWidth: [0],
+                rotation: `${segment_width / 2}`,
+              }}
             />
           </div>
-          <img
-            className="spinCircle"
-            src="/images/other/SPIN CIRCLE@2x.png"
-            alt=""
-          />
         </div>
       </div>
       {/* <p>Picking a player from</p>

@@ -8,43 +8,10 @@ import { Chart, ArcElement } from "chart.js";
 Chart.register(ArcElement);
 
 export default function CreateHomePgae() {
-  const [data, setData] = useState("");
   const [randomVal, setRandomVal] = useState("");
-  const [tt, settt] = useState("120");
   const [players, setPlayers] = useState([]);
+  const [style, setStyle] = useState({});
 
-  // const defaultPlayers = [
-  //   {
-  //     name: "Alex",
-  //     avatar: "/images/avatar/Face 1.png",
-  //     rot: "-90deg",
-  //   },
-  //   {
-  //     name: "Simon",
-  //     avatar: "/images/avatar/Face 2.png",
-  //     rot: "-30deg",
-  //   },
-  //   {
-  //     name: "Sten",
-  //     avatar: "/images/avatar/Face 3.png",
-  //     rot: "30deg",
-  //   },
-  //   {
-  //     name: "James",
-  //     avatar: "/images/avatar/Face 4.png",
-  //     rot: "90deg",
-  //   },
-  //   {
-  //     name: "Olivia",
-  //     avatar: "/images/avatar/Face 5.png",
-  //     rot: "150deg",
-  //   },
-  //   {
-  //     name: "Valentina",
-  //     avatar: "/images/avatar/Face 6.png",
-  //     rot: "210deg",
-  //   },
-  // ];
   const background = [
     "#9D0A89",
     "#B21F00",
@@ -115,11 +82,11 @@ export default function CreateHomePgae() {
   }, []);
 
   const spin = () => {
-    setData(true);
-    setTimeout(() => stop(), 3000);
+    const randomAngle = Math.random() * 360 + 3600 + "deg";
+    setStyle({transform:`rotate(${randomAngle})`})
+    setTimeout(() => stop(), 5000);
   };
   const stop = () => {
-    setData(false);
     let matrix = getComputedStyle(bottle.current).transform;
     let values = matrix.split("(")[1];
     values = values.split(")")[0];
@@ -127,9 +94,9 @@ export default function CreateHomePgae() {
     let angle =
       Math.round(Math.atan2(values[1], values[0]) * (180 / Math.PI)) + random;
     console.log(random);
-    // if (angle > 360) {
-    //   angle = angle-360;
-    // }
+    if (angle > 360) {
+      angle = angle - 360;
+    }
     console.log(angle);
     if (angle < 0) {
       angle = 360 + angle;
@@ -142,6 +109,7 @@ export default function CreateHomePgae() {
   //   setRandomVal(Math.random() * (max - min + 1) + min);
   //   return(Math.random() * (max - min + 1) + min)
   // };
+
   return (
     <div
       className="createHomePage"
@@ -173,8 +141,9 @@ export default function CreateHomePgae() {
             <div style={{ transform: `rotate(${randomVal + "deg"})` }}>
               <img
                 ref={bottle}
-                className={`bottle rotate ${data ? "active" : ""}`}
+                className="bottle"
                 src="/images/other/bottle1.png"
+                style={style}
               />
             </div>
           </div>
