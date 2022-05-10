@@ -11,7 +11,7 @@ export default function CreateHomePgae() {
   const [randomVal, setRandomVal] = useState("");
   const [players, setPlayers] = useState([]);
   const [style, setStyle] = useState({});
-
+//dynamic background color
   const background = [
     "#9D0A89",
     "#B21F00",
@@ -22,6 +22,7 @@ export default function CreateHomePgae() {
     "#1B2A3E",
     "#EF6C00",
   ];
+  // I used default data for now, but this data will be from backend 
   const defaultPlayers = [
     {
       name: "Alex",
@@ -41,6 +42,14 @@ export default function CreateHomePgae() {
     },
     {
       name: "Valentyna",
+      avatar: "/images/avatar/Face 4.png",
+    },
+    {
+      name: "James",
+      avatar: "/images/avatar/Face 4.png",
+    },
+    {
+      name: "James",
       avatar: "/images/avatar/Face 4.png",
     },
     {
@@ -102,7 +111,7 @@ export default function CreateHomePgae() {
       angle = 360 + angle;
     }
     let winner = Math.ceil((angle + segment_width / 2) / segment_width);
-    if (winner === 7) winner = 1;
+    if (winner === AMOUNT_OF_ITEMS+1) winner = 1;
     console.log(defaultPlayers[Number(winner - 1)]);
   };
   // const randomFloat = (min = 0, max = 360) => {
