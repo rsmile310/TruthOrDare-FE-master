@@ -40,8 +40,9 @@ const CameraPage = () => {
       const url = window.URL.createObjectURL(blob);
       setVideoUrl(url);
       // window.URL.revokeObjectURL(url);
-      alert(recordedChunks)
+      alert("recordedChunks");
     }
+    alert("stop");
   }, [mediaRecorderRef, webcamRef]);
 
   const handleDownload = React.useCallback(() => {
