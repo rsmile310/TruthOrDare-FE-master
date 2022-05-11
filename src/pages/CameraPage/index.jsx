@@ -36,8 +36,7 @@ const CameraPage = () => {
     setCapturing(false);
 
     let video = document.querySelector("video");
-    video.addEventListener("onload", handlePreview);
-    handlePreview();
+    video.addEventListener("onload", alert("hello"));
     setTimeout(handlePreview, 4000);
   }, [mediaRecorderRef, webcamRef]);
 
