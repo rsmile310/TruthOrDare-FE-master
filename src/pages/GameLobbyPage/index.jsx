@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./style.scss";
 import { useEffect, useState } from "react";
 
@@ -36,7 +37,7 @@ const GameLobbyPage = (props) => {
     >
       <Navbar />
       <HeaderText text={data.headerText} />
-      {lobbyOwner && <img className="qrcode" width='132px' height='132px' src="/images/other/QR Code@3x.png" />}
+      {lobbyOwner && <img className="qrcode" width='132px' height='132px' src="/images/other/QR Code@3x.png" alt="" />}
       {!lobbyOwner ? (
         <div className="loadingIconBox">
           <LoadingIcon />

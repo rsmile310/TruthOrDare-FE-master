@@ -1,4 +1,4 @@
-import { GAME_STATUS, LOBBY_STATUS, PLAYER_STATUS } from "./const";
+import { GAME_STATUS, LOBBY_STATUS } from "./const";
 
 const debug = false;
 const currentPlayers = 8;

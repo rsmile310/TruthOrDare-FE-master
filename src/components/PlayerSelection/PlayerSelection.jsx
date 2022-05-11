@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./style.scss";
 // import { PLAYER_STATUS } from "../../const";
 // import { SocketContext } from "../../providers/Socket";
