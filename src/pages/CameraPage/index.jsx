@@ -9,7 +9,7 @@ const CameraPage = () => {
   const mediaRecorderRef = React.useRef(null);
   const [capturing, setCapturing] = React.useState(true);
   const [recordedChunks, setRecordedChunks] = React.useState([]);
-  const [videoUrl, setVideoUrl] = React.useState("");
+  // const [videoUrl, setVideoUrl] = React.useState("");
 
   const handleStartCaptureClick = React.useCallback(() => {
     mediaRecorderRef.current = new MediaRecorder(webcamRef.current.stream, {
@@ -34,6 +34,7 @@ const CameraPage = () => {
   const handleStopCaptureClick = React.useCallback(() => {
     mediaRecorderRef.current.stop();
     setCapturing(false);
+    handlePreview();
   }, [mediaRecorderRef, webcamRef]);
 
   const handlePreview = React.useCallback(() => {
@@ -41,7 +42,10 @@ const CameraPage = () => {
       type: "video/webm",
     });
     const url = window.URL.createObjectURL(blob);
-    setVideoUrl(url);
+    // setVideoUrl(url);
+    const videoPreview = document.querySelector(".previewVideo");
+    videoPreview.src = url;
+    videoPreview.load();
   }, [recordedChunks]);
 
   // const handleDownload = () => {
@@ -83,7 +87,7 @@ const CameraPage = () => {
         <div className="videoContainer">
           <div className="videoBox">
             <video
-              src={videoUrl}
+              className="previewVideo"
               width="302px"
               height="390px"
               controls
