@@ -34,10 +34,6 @@ const CameraPage = () => {
   const handleStopCaptureClick = React.useCallback(() => {
     mediaRecorderRef.current.stop();
     setCapturing(false);
-
-    let video = document.querySelector("video");
-    video.addEventListener("onload", alert("hello"));
-    setTimeout(handlePreview, 4000);
   }, [mediaRecorderRef, webcamRef]);
 
   const handlePreview = React.useCallback(() => {
@@ -92,8 +88,8 @@ const CameraPage = () => {
               height="390px"
               controls
               title="video"
+              onClick={handlePreview}
             />
-            <div>hehe={videoUrl}</div>
             <button className="iconBtn downloadBtn" onClick={handlePreview}>
               <img
                 src="/images/other/download.png"
