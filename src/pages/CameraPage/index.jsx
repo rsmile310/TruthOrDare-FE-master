@@ -34,7 +34,14 @@ const CameraPage = () => {
   const handleStopCaptureClick = React.useCallback(() => {
     mediaRecorderRef.current.stop();
     setCapturing(false);
-    handlePreview();
+    const blob = new Blob(recordedChunks, {
+      type: "video/webm",
+    });
+    const url = window.URL.createObjectURL(blob);
+    // setVideoUrl(url);
+    const videoPreview = document.querySelector(".previewVideo");
+    videoPreview.src = url;
+    videoPreview.load();
   }, [mediaRecorderRef, webcamRef]);
 
   const handlePreview = React.useCallback(() => {
