@@ -34,7 +34,7 @@ const CameraPage = () => {
   const handleStopCaptureClick = React.useCallback(() => {
     mediaRecorderRef.current.stop();
     setCapturing(false)
-    setTimeout(handlePreview, 1000);
+    setTimeout(handlePreview, 4000);
   }, [mediaRecorderRef, webcamRef]);
 
   const handlePreview = React.useCallback(() => {
@@ -43,7 +43,6 @@ const CameraPage = () => {
     });
     const url = window.URL.createObjectURL(blob);
     setVideoUrl(url);
-    alert("handle preview");
   }, [recordedChunks]);
 
   // const handleDownload = () => {
