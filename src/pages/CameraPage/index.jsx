@@ -85,6 +85,7 @@ const CameraPage = () => {
               autoPlay="true"
               allow="camera; microphone;"
               title="video"
+              type="video/webm"
             />
             {/* <video src={videoUrl} allow="camera; microphone;" title="video" /> */}
             {/* <video width="302" height="390" controls autoplay>
