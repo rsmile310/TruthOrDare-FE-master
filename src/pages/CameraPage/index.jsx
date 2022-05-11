@@ -33,7 +33,7 @@ const CameraPage = () => {
 
   const handleStopCaptureClick = React.useCallback(() => {
     mediaRecorderRef.current.stop();
-    if (recordedChunks.length) {
+    // if (recordedChunks.length) {
       const blob = new Blob(recordedChunks, {
         type: "video/webm",
       });
@@ -41,7 +41,7 @@ const CameraPage = () => {
       setVideoUrl(url);
       // window.URL.revokeObjectURL(url);
       alert("recordedChunks");
-    }
+    // }
     alert("stop");
   }, [mediaRecorderRef, webcamRef]);
 
