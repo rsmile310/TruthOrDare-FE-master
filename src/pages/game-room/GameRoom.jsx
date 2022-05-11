@@ -1,11 +1,10 @@
-import { useEffect, useState, useContext, useCallback, useRef } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
 import {
   SERVER_URL,
   GAME_STATUS,
-  PLAYER_STATUS,
   LOBBY_STATUS,
 } from "../../const";
 import {
@@ -23,8 +22,6 @@ import {
 import styles from "./GameRoom.module.scss";
 
 import { SocketContext } from "../../providers/Socket";
-
-import Lobby from "../../components/Lobby/Lobby";
 import PlayerSelection from "../../components/PlayerSelection/PlayerSelection";
 import TruthOrDareSelection from "../../components/TruthOrDareSelection/TruthOrDareSelection";
 import ActionSelection from "../../components/ActionSelection/ActionSelection";
@@ -86,7 +83,7 @@ const GameRoom = () => {
     if (socket && roomFound && name) {
       socket.emit("join-room", { roomId: roomId, name: name, avatar: avatar });
     }
-  }, [socket, roomFound, name]);
+  }, [socket, roomFound, name,roomId,avatar]);
 
   useEffect(() => {
     if (debug) return;

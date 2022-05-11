@@ -6,9 +6,9 @@ import Navbar from "../Navbar";
 import WhitePillButton from '../WhitePillButton';
 
 const EndRound = ({ currentPlayer }) => {
-  useEffect(()=>{
-    console.log(currentPlayer)
-  },[])
+  // useEffect(()=>{
+  //   console.log(currentPlayer)
+  // },[])
   const socket = useContext(SocketContext);
     console.log(socket)
   const nextRound = () => {

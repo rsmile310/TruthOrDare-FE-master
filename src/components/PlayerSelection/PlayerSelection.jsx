@@ -76,6 +76,7 @@ const PlayerSelection = ({ players, currentPlayer }) => {
       rot = rot + segment_width;
       temp_state_chart.datasets[0].backgroundColor[index] = background[index];
       temp_state_chart.datasets[0].data[index] = 1;
+      return true;
     });
     setPlayerData(temp_state);
     setState(temp_state_chart);
