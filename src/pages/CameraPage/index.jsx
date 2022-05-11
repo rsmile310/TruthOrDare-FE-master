@@ -60,8 +60,8 @@ const CameraPage = () => {
       // a.download = "react-webcam-stream-capture.webm";
       setVideoUrl(url);
       alert(recordedChunks);
-      alert("blob",blob)
-      alert("url",url)
+      alert(blob)
+      alert(url)
       // a.click();
       // window.URL.revokeObjectURL(url);
       // setRecordedChunks([]);
