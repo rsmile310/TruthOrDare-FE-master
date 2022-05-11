@@ -78,15 +78,15 @@ const CameraPage = () => {
         <div className="videoContainer">
           <div className="videoBox">
             <video
-              src={videoUrl}
               width="302px"
               height="390px"
               control
               autoPlay="true"
               allow="camera; microphone;"
               title="video"
-              type="video/webm"
-            />
+            >
+              <source src={videoUrl} type="video/webm" />
+            </video>
             {/* <video src={videoUrl} allow="camera; microphone;" title="video" /> */}
             {/* <video width="302" height="390" controls autoplay>
               <source src={videoUrl} type="video/webm" />
