@@ -47,14 +47,12 @@ const CameraPage = () => {
       a.style = "display: none";
       a.href = url;
       a.download = "react-webcam-stream-capture.webm";
-      setVideoUrl(url);
+      setVideoUrl(window.URL.createObjectURL(recordedChunks));
       a.click();
       window.URL.revokeObjectURL(url);
-      alert(a.href)
       // setRecordedChunks([]);
     }
   }, [recordedChunks]);
-
   return (
     <div className="cameraPage mainPage">
       <button className="cameraCloseBtn iconBtn">
