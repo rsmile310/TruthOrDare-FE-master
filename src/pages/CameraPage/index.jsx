@@ -47,7 +47,6 @@ const CameraPage = () => {
   }, [recordedChunks]);
 
   const handleDownload = () => {
-    setPlayState(false);
     const blob = new Blob(recordedChunks, {
       type: "video/webm",
     });
@@ -59,6 +58,11 @@ const CameraPage = () => {
     a.download = "react-webcam-stream-capture.webm";
     a.click();
     window.URL.revokeObjectURL(url);
+  };
+  const handlePreviewClose = () => {
+    setRecordedChunks([]);
+    setPlayState(true);
+    setVideoUrl("");
   };
   return (
     <div className="cameraPage mainPage">
@@ -107,7 +111,7 @@ const CameraPage = () => {
             </button>
             <button
               className="previewCloseBtn iconBtn"
-              onClick={() => setRecordedChunks([])}
+              onClick={handlePreviewClose}
             >
               <img
                 src="/images/other/close_btn.png"
