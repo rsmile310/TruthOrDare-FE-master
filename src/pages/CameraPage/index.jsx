@@ -100,7 +100,7 @@ const CameraPage = () => {
           </div>
         </div>
       )}
-      {/* <div className="videoContainer">
+      <div className="videoContainer">
         <div className="videoBox">
           <video
             src={videoUrl}
@@ -109,7 +109,7 @@ const CameraPage = () => {
             controls
             title="video"
           />
-          <div class="bt-play" onClick={handleDownload}></div>
+          <button class="bt-play" onClick={handleDownload}></button>
           <button className="iconBtn downloadBtn" onClick={handlePreview}>
             <img
               src="/images/other/download.png"
@@ -119,7 +119,7 @@ const CameraPage = () => {
             />
           </button>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
