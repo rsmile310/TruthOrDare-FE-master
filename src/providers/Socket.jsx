@@ -13,10 +13,9 @@ const SocketContext = React.createContext();
 
 const SocketProvider = ({ children }) => {
   const [socket, setSocket] = useState(defaultSocket);
+  const { roomId } = useParams(null);
 
   useEffect(() => {
-    const { roomId } = useParams(null);
-
     if (debug) return;
 
     if (!socket) {
