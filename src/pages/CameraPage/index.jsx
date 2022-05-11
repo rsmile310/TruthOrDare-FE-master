@@ -42,7 +42,7 @@ const CameraPage = () => {
     });
     const url = window.URL.createObjectURL(blob);
     setVideoUrl(url);
-    return true;
+    alert("handle preview")
   }, [recordedChunks]);
 
   const handleDownload = () => {
