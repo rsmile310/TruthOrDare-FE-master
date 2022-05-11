@@ -14,7 +14,7 @@ const ActionRating = ({ currentPlayer, truthOrDare }) => {
   return (
     <div className={styles.actionRating}>
       <Navbar />
-      {currentPlayer.socketId == socket.id ? (
+      {currentPlayer.socketId === socket.id ? (
         <ActionRatingWait truthOrDare={truthOrDare} />
       ) : (
         <ActionRatingStart onStart={onStart} truthOrDare={truthOrDare} />

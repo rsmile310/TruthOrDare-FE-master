@@ -1,4 +1,3 @@
-import LoadingIcon from "../LoadingIcon/LoadIcon.jsx";
 import LoadingTextIcon from "../LoadingTextIcon/index.jsx";
 import RateTitleText from "../RateTitleText.jsx";
 import styles from "./ActionRating.module.scss";

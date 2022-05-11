@@ -18,7 +18,7 @@ const Lobby = ({ players, room, lobbyOwner }) => {
         <div>
           {players.map(
             (player, i) =>
-              player.playerStatus != PLAYER_STATUS.DISCONNECTED && (
+              player.playerStatus !== PLAYER_STATUS.DISCONNECTED && (
                 <Player key={i} name={player.name} avatar={player.avatar} />
               )
           )}

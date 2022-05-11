@@ -30,7 +30,7 @@ const ActionReveal = ({ currentPlayer, action, truthOrDare }) => {
           </h6>
         </div>
         <div className={styles.btnBox}>
-          {currentPlayer.socketId == socket.id && (
+          {currentPlayer.socketId === socket.id && (
             <WhitePillButton
               onStart={() => actionPerformed(action.id)}
               text="DONE"

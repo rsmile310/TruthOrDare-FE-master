@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import styles from "./ActionSelection.module.scss";
 import { SocketContext } from "../../providers/Socket";
 import TruthWait from "./TruthWait";
 import TruthSelect from "./TruthSelect";
@@ -16,7 +15,7 @@ const ActionSelection = ({ currentPlayer, actions, truthOrDare, timer }) => {
   return (
     <div>
       <Navbar />
-      {currentPlayer.socketId == socket.id ? (
+      {currentPlayer.socketId === socket.id ? (
         <TruthWait />
       ) : (
         <TruthSelect actions={actions} actionSelected={(id)=>actionSelected(id)} />

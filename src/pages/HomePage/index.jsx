@@ -1,6 +1,5 @@
 import "./style.scss";
 import React, { useRef } from "react";
-import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import HeaderText from "../../components/HeaderText";
 import WhitePillButton from "../../components/WhitePillButton";

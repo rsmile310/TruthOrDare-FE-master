@@ -1,9 +1,9 @@
 import "./style.scss";
-import { PLAYER_STATUS } from "../../const";
-import { SocketContext } from "../../providers/Socket";
+// import { PLAYER_STATUS } from "../../const";
+// import { SocketContext } from "../../providers/Socket";
 import Navbar from "../Navbar";
 import { useEffect, useRef, useState } from "react";
-import { Pie, Doughnut } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
 import { Chart, ArcElement } from "chart.js";
 Chart.register(ArcElement);
 
@@ -62,10 +62,11 @@ const PlayerSelection = ({ players, currentPlayer }) => {
   let bottle = useRef(null);
   let AMOUNT_OF_ITEMS = defaultPlayers.length; // change this if there is a different amount of items
   let segment_width = 360 / AMOUNT_OF_ITEMS;
-  let random;
+  let randomnum;
+  randomnum = Math.random() * 360;
+
   useEffect(() => {
-    random = Math.random() * 360;
-    setRandomVal(random);
+    setRandomVal(randomnum);
 
     let temp_state = [...defaultPlayers];
     let temp_state_chart = defaultdata;
@@ -92,8 +93,9 @@ const PlayerSelection = ({ players, currentPlayer }) => {
     values = values.split(")")[0];
     values = values.split(",");
     let angle =
-      Math.round(Math.atan2(values[1], values[0]) * (180 / Math.PI)) + random;
-    console.log(random);
+      Math.round(Math.atan2(values[1], values[0]) * (180 / Math.PI)) +
+      randomnum;
+    console.log(randomnum);
     if (angle > 360) {
       angle = angle - 360;
     }
@@ -131,7 +133,7 @@ const PlayerSelection = ({ players, currentPlayer }) => {
               >
                 <div>
                   <p className="my-0">{e.name}</p>
-                  <img width="51px" height="51px" src={e.avatar} />
+                  <img width="51px" height="51px" src={e.avatar} alt="" />
                 </div>
               </li>
             ))}
@@ -143,6 +145,7 @@ const PlayerSelection = ({ players, currentPlayer }) => {
                 className="bottle"
                 src="/images/other/bottle1.png"
                 style={style}
+                alt=""
               />
             </div>
           </div>

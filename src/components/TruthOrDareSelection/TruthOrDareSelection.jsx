@@ -14,7 +14,7 @@ const TruthOrDareSelection = ({ currentPlayer }) => {
   return (
     <div>
       <Navbar />
-      {currentPlayer.socketId == socket.id ? (
+      {currentPlayer.socketId === socket.id ? (
         <TruthOrDareStart onStart={truthOrDareSelected} currentPlayerName={currentPlayer.name}/>
       ) : (
         <TruthOrDareWait currentPlayerName={currentPlayer.name} />

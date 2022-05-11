@@ -27,7 +27,7 @@ const EndRound = ({ currentPlayer }) => {
         <h1>BRILLIANT</h1>
       </div>
 
-      {currentPlayer.socketId == socket.id ? (
+      {currentPlayer.socketId === socket.id ? (
         <div className={styles.btnBox}>
           <WhitePillButton onStart={nextRound} text={'NEXT ROUND'} />
           <WhitePillButton onStart={endGame} text={'END GAME'} />

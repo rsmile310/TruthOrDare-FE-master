@@ -1,5 +1,4 @@
 import "./style.scss";
-import React, { Component, useEffect, useState } from "react";
 import Slider from "react-slick";
 import AvatarConfig from "./AvatarConfig";
 // import Avatar from '../../images/avatar/LYLCircleAsset 22@3x.png'

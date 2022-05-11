@@ -4,7 +4,6 @@ import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 import CreateGamePage from "./pages/CreateGamePage";
 import GameRoom from "./pages/game-room/GameRoom";
 import { SocketProvider } from "./providers/Socket";
-import HomePage from "./pages/HomePage";
 import CreateHomePgae from "./pages/CreateHomePage";
 import CameraPage from "./pages/CameraPage";
 

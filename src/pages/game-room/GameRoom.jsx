@@ -97,7 +97,7 @@ const GameRoom = () => {
 
       // Update all players
       socket.on("players-updated", (players) => {
-        setPlayer(players.find((player) => player.socketId == socket.id));
+        setPlayer(players.find((player) => player.socketId === socket.id));
         setPlayers(players);
       });
 
@@ -105,9 +105,9 @@ const GameRoom = () => {
       socket.on("room-updated", (room) => {
         setGameRoom({
           room: room,
-          lobbyOwner: room.ownerId == player.id,
+          lobbyOwner: room.ownerId === player.id,
           currentPlayer: players.find(
-            (player) => player.id == room.currentPlayerId
+            (player) => player.id === room.currentPlayerId
           ),
         });
       });
