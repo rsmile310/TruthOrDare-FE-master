@@ -43,13 +43,13 @@ const CameraPage = () => {
       });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
-      document.body.appendChild(a);
-      a.style = "display: none";
-      a.href = url;
-      a.download = "react-webcam-stream-capture.webm";
-      setVideoUrl(window.URL.createObjectURL(recordedChunks));
-      a.click();
-      window.URL.revokeObjectURL(url);
+      // document.body.appendChild(a);
+      // a.style = "display: none";
+      // a.href = url;
+      // a.download = "react-webcam-stream-capture.webm";
+      setVideoUrl(url);
+      // a.click();
+      // window.URL.revokeObjectURL(url);
       // setRecordedChunks([]);
     }
   }, [recordedChunks]);
@@ -79,8 +79,8 @@ const CameraPage = () => {
         <div className="videoContainer">
           <div className="videoBox">
             {/* <video src={videoUrl} allow="camera; microphone;" title="video" /> */}
-            <video width='302' height='390' controls autoplay>
-                <source src={videoUrl} type="video/webm" />
+            <video width="302" height="390" controls autoplay>
+              <source src={videoUrl} type="video/webm" />
             </video>
             <button className="iconBtn downloadBtn" onClick={handleDownload}>
               <img
@@ -90,11 +90,11 @@ const CameraPage = () => {
                 alt=""
               />
             </button>
-            <h1>aa={videoUrl}</h1>
           </div>
+          <h1>aa={videoUrl}</h1>
         </div>
       )}
-       {/* <div className="videoContainer">
+      {/* <div className="videoContainer">
           <div className="videoBox">
             <video width='302' height='390' controls autoplay>
                 <source src={videoUrl} type="video/webm" />
