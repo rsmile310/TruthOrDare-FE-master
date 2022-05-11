@@ -68,8 +68,8 @@ const CameraPage = () => {
 
       <button
         className="captureBtn iconBtn"
-        onTouchStart={() => handleStartCaptureClick}
-        onTouchEnd={() => handleStopCaptureClick}
+        onTouchStart={() => handleStartCaptureClick()}
+        onTouchEnd={() => handleStopCaptureClick()}
         style={{ backgroundImage: "url(/images/other/Camera_Button.png" }}
       >
         {/* <img src="/images/other/Camera_Button.png" alt="" /> */}
