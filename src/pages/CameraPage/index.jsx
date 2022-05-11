@@ -49,7 +49,7 @@ const CameraPage = () => {
       // a.download = "react-webcam-stream-capture.webm";
       setVideoUrl(url);
       // a.click();
-      // window.URL.revokeObjectURL(url);
+      window.URL.revokeObjectURL(url);
       // setRecordedChunks([]);
     }
   }, [recordedChunks]);
@@ -91,7 +91,7 @@ const CameraPage = () => {
               />
             </button>
           </div>
-          <h1>aa={videoUrl}</h1>
+          {/* <h1>aa={videoUrl}</h1> */}
         </div>
       )}
       {/* <div className="videoContainer">
