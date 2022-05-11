@@ -7,7 +7,7 @@ import Webcam from "react-webcam";
 const CameraPage = () => {
   const webcamRef = React.useRef(null);
   const mediaRecorderRef = React.useRef(null);
-  // const [capturing, setCapturing] = React.useState(false);
+  const [capturing, setCapturing] = React.useState(true);
   const [recordedChunks, setRecordedChunks] = React.useState([]);
   const [videoUrl, setVideoUrl] = React.useState("");
 
@@ -33,6 +33,7 @@ const CameraPage = () => {
 
   const handleStopCaptureClick = React.useCallback(() => {
     mediaRecorderRef.current.stop();
+    setCapturing(false)
     setTimeout(handlePreview, 1000);
   }, [mediaRecorderRef, webcamRef]);
 
@@ -80,7 +81,7 @@ const CameraPage = () => {
       >
         {/* <img src="/images/other/Camera_Button.png" alt="" /> */}
       </button>
-      {videoUrl && (
+      {!capturing && (
         <div className="videoContainer">
           <div className="videoBox">
             <video
