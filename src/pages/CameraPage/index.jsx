@@ -81,22 +81,12 @@ const CameraPage = () => {
               src={videoUrl}
               width="302px"
               height="390px"
-              controls
+              // controls
               // autoPlay="true"
               title="video"
               // type="video/webm"
             />
-            {/* <source
-                src={videoUrl}
-                width="302px"
-                height="390px"
-                type="video/webm"
-                controls
-              /> */}
-            {/* <video src={videoUrl} allow="camera; microphone;" title="video" /> */}
-            {/* <video width="302" height="390" controls autoplay>
-              <source src={videoUrl} type="video/webm" />
-            </video> */}
+            
             <button className="iconBtn downloadBtn" onClick={handleDownload}>
               <img
                 src="/images/other/download.png"
