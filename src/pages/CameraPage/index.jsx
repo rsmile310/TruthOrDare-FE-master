@@ -80,7 +80,7 @@ const CameraPage = () => {
       >
         {/* <img src="/images/other/Camera_Button.png" alt="" /> */}
       </button>
-      {videoUrl && (
+      {!videoUrl && (
         <div className="videoContainer">
           <div className="videoBox">
             <video
