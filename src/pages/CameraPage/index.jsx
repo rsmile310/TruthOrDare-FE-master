@@ -80,7 +80,7 @@ const CameraPage = () => {
       >
         {/* <img src="/images/other/Camera_Button.png" alt="" /> */}
       </button>
-      {!videoUrl && (
+      {videoUrl && (
         <div className="videoContainer">
           <div className="videoBox">
             <video
@@ -90,7 +90,7 @@ const CameraPage = () => {
               controls
               title="video"
             />
-
+            <div>hehe={videoUrl}</div>
             <button className="iconBtn downloadBtn" onClick={handleDownload}>
               <img
                 src="/images/other/download.png"
