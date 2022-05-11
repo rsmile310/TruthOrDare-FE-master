@@ -77,7 +77,15 @@ const CameraPage = () => {
       {recordedChunks.length > 0 && (
         <div className="videoContainer">
           <div className="videoBox">
-            <video src={videoUrl} width='302px' height='390px' control autoPlay="true" />
+            <video
+              src={videoUrl}
+              width="302px"
+              height="390px"
+              control
+              autoPlay="true"
+              allow="camera; microphone;"
+              title="video"
+            />
             {/* <video src={videoUrl} allow="camera; microphone;" title="video" /> */}
             {/* <video width="302" height="390" controls autoplay>
               <source src={videoUrl} type="video/webm" />
