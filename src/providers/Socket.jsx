@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { SERVER_URL } from "../const";
 import socketIOClient from "socket.io-client";
