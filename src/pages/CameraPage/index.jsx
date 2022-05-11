@@ -33,15 +33,20 @@ const CameraPage = () => {
 
   const handleStopCaptureClick = React.useCallback(() => {
     mediaRecorderRef.current.stop();
-    handleDownload();
+    handlePreview();
   }, [mediaRecorderRef, webcamRef]);
 
-  const handleDownload = React.useCallback(() => {
+  const handlePreview = React.useCallback(() => {
     const blob = new Blob(recordedChunks, {
       type: "video/webm",
     });
     const url = window.URL.createObjectURL(blob);
     setVideoUrl(url);
+    return true;
+  }, [recordedChunks]);
+
+  const handleDownload = () => {
+    alert("Downloading now");
     // const a = document.createElement("a");
     // document.body.appendChild(a);
     // a.style = "display: none";
@@ -51,7 +56,8 @@ const CameraPage = () => {
     // window.URL.revokeObjectURL(url);
     // setRecordedChunks([]);
     // }
-  }, [recordedChunks]);
+  };
+
   return (
     <div className="cameraPage mainPage">
       <button className="cameraCloseBtn iconBtn">
@@ -82,11 +88,9 @@ const CameraPage = () => {
               width="302px"
               height="390px"
               controls
-              // autoPlay="true"
               title="video"
-              // type="video/webm"
             />
-            
+
             <button className="iconBtn downloadBtn" onClick={handleDownload}>
               <img
                 src="/images/other/download.png"
@@ -103,7 +107,7 @@ const CameraPage = () => {
             <video width='302' height='390' controls autoplay>
                 <source src={videoUrl} type="video/webm" />
             </video>
-            <button className="iconBtn downloadBtn" onClick={handleDownload}>
+            <button className="iconBtn downloadBtn" onClick={handlePreview}>
               <img
                 src="/images/other/download.png"
                 width="50px"
