@@ -63,7 +63,7 @@ const CameraPage = () => {
       alert(blob)
       alert(url)
       // a.click();
-      // window.URL.revokeObjectURL(url);
+      window.URL.revokeObjectURL(url);
       // setRecordedChunks([]);
     // }
   }, [recordedChunks]);
