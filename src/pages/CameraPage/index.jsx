@@ -10,6 +10,7 @@ const CameraPage = () => {
   // const [capturing, setCapturing] = React.useState(false);
   const [recordedChunks, setRecordedChunks] = React.useState([]);
   const [videoUrl, setVideoUrl] = React.useState("");
+  const [playState, setPlayState] = React.useState(true);
 
   const handleStartCaptureClick = React.useCallback(() => {
     mediaRecorderRef.current = new MediaRecorder(webcamRef.current.stream, {
@@ -37,6 +38,7 @@ const CameraPage = () => {
   }, [mediaRecorderRef, webcamRef]);
 
   const handlePreview = React.useCallback(() => {
+    setPlayState(false);
     const blob = new Blob(recordedChunks, {
       type: "video/webm",
     });
@@ -86,9 +88,13 @@ const CameraPage = () => {
               width="302px"
               height="390px"
               controls
+              autoPlay="true"
               title="video"
             />
-            <button class="bt-play" onClick={handlePreview}></button>
+            <button
+              className={playState ? "btPlay active" : "btPlay"}
+              onClick={handlePreview}
+            ></button>
             <button className="iconBtn downloadBtn" onClick={handleDownload}>
               <img
                 src="/images/other/download.png"
@@ -100,26 +106,6 @@ const CameraPage = () => {
           </div>
         </div>
       )}
-      {/* <div className="videoContainer">
-        <div className="videoBox">
-          <video
-            src={videoUrl}
-            width="302px"
-            height="390px"
-            controls
-            title="video"
-          />
-          <button class="bt-play" onClick={handleDownload}></button>
-          <button className="iconBtn downloadBtn" onClick={handlePreview}>
-            <img
-              src="/images/other/download.png"
-              width="50px"
-              height="50px"
-              alt=""
-            />
-          </button>
-        </div>
-      </div> */}
     </div>
   );
 };
