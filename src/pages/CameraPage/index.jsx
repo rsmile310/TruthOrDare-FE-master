@@ -68,8 +68,8 @@ const CameraPage = () => {
 
       <button
         className="captureBtn iconBtn"
-        onTouchStart={handleStartCaptureClick}
-        onTouchEnd={handleStopCaptureClick}
+        onTouchStart={() => handleStartCaptureClick}
+        onTouchEnd={() => handleStopCaptureClick}
         style={{ backgroundImage: "url(/images/other/Camera_Button.png" }}
       >
         {/* <img src="/images/other/Camera_Button.png" alt="" /> */}
@@ -85,15 +85,14 @@ const CameraPage = () => {
               // autoPlay="true"
               title="video"
               type="video/webm"
-            >
-              {/* <source
+            />
+            {/* <source
                 src={videoUrl}
                 width="302px"
                 height="390px"
                 type="video/webm"
                 controls
               /> */}
-            </video>
             {/* <video src={videoUrl} allow="camera; microphone;" title="video" /> */}
             {/* <video width="302" height="390" controls autoplay>
               <source src={videoUrl} type="video/webm" />
