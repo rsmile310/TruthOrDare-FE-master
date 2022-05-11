@@ -39,7 +39,7 @@ const CameraPage = () => {
       });
       const url = window.URL.createObjectURL(blob);
       setVideoUrl(url);
-      window.URL.revokeObjectURL(url);
+      // window.URL.revokeObjectURL(url);
     }
   }, [mediaRecorderRef, webcamRef]);
 
@@ -56,7 +56,7 @@ const CameraPage = () => {
       // a.download = "react-webcam-stream-capture.webm";
       setVideoUrl(url);
       // a.click();
-      window.URL.revokeObjectURL(url);
+      // window.URL.revokeObjectURL(url);
       // setRecordedChunks([]);
     }
   }, [recordedChunks]);
