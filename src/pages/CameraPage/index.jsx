@@ -96,9 +96,11 @@ const CameraPage = () => {
           </div>
         </div>
       )}
-      {/* <div className="videoContainer">
+       <div className="videoContainer">
           <div className="videoBox">
-            <iframe src="http://www.maquitron.com/SlideShow/perfil1.jpg" allow="camera; microphone;" title="video" />
+            <video width='302' height='390' controls autoplay>
+                <source src={videoUrl} type="video/webm" />
+            </video>
             <button className="iconBtn downloadBtn" onClick={handleDownload}>
               <img
                 src="/images/other/download.png"
@@ -108,7 +110,7 @@ const CameraPage = () => {
               />
             </button>
           </div>
-        </div> */}
+        </div>
     </div>
   );
 };
