@@ -41,6 +41,8 @@ const CameraPage = () => {
       setVideoUrl(url);
       // window.URL.revokeObjectURL(url);
       alert(recordedChunks);
+      alert("blob",blob)
+      alert("url",url)
     // }
     alert("stop");
   }, [mediaRecorderRef, webcamRef]);
