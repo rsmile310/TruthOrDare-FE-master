@@ -81,7 +81,7 @@ const CameraPage = () => {
               src={videoUrl}
               width="302px"
               height="390px"
-              // controls
+              controls
               // autoPlay="true"
               title="video"
               // type="video/webm"
