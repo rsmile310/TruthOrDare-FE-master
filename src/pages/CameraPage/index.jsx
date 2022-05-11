@@ -34,37 +34,37 @@ const CameraPage = () => {
   const handleStopCaptureClick = React.useCallback(() => {
     mediaRecorderRef.current.stop();
     // if (recordedChunks.length) {
-      const blob = new Blob(recordedChunks, {
-        type: "video/webm",
-      });
-      const url = window.URL.createObjectURL(blob);
-      setVideoUrl(url);
-      // window.URL.revokeObjectURL(url);
-      alert(recordedChunks);
-      alert("blob",blob)
-      alert("url",url)
+    const blob = new Blob(recordedChunks, {
+      type: "video/webm",
+    });
+    const url = window.URL.createObjectURL(blob);
+    setVideoUrl(url);
+    // window.URL.revokeObjectURL(url);
+    alert(recordedChunks);
+    alert("blob", blob);
+    alert("url", url);
     // }
     alert("stop");
   }, [mediaRecorderRef, webcamRef]);
 
   const handleDownload = React.useCallback(() => {
     // if (recordedChunks.length) {
-      const blob = new Blob(recordedChunks, {
-        type: "video/webm",
-      });
-      const url = window.URL.createObjectURL(blob);
-      // const a = document.createElement("a");
-      // document.body.appendChild(a);
-      // a.style = "display: none";
-      // a.href = url;
-      // a.download = "react-webcam-stream-capture.webm";
-      setVideoUrl(url);
-      alert(recordedChunks);
-      alert(blob)
-      alert(url)
-      // a.click();
-      window.URL.revokeObjectURL(url);
-      // setRecordedChunks([]);
+    const blob = new Blob(recordedChunks, {
+      type: "video/webm",
+    });
+    const url = window.URL.createObjectURL(blob);
+    // const a = document.createElement("a");
+    // document.body.appendChild(a);
+    // a.style = "display: none";
+    // a.href = url;
+    // a.download = "react-webcam-stream-capture.webm";
+    setVideoUrl(url);
+    alert(recordedChunks);
+    alert(blob);
+    alert(url);
+    // a.click();
+    // window.URL.revokeObjectURL(url);
+    // setRecordedChunks([]);
     // }
   }, [recordedChunks]);
   return (
@@ -92,10 +92,11 @@ const CameraPage = () => {
       {recordedChunks.length > 0 && (
         <div className="videoContainer">
           <div className="videoBox">
+            <video src={videoUrl} autoPlay="true" />
             {/* <video src={videoUrl} allow="camera; microphone;" title="video" /> */}
-            <video width="302" height="390" controls autoplay>
+            {/* <video width="302" height="390" controls autoplay>
               <source src={videoUrl} type="video/webm" />
-            </video>
+            </video> */}
             <button className="iconBtn downloadBtn" onClick={handleDownload}>
               <img
                 src="/images/other/download.png"
