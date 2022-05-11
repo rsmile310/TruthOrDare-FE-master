@@ -80,7 +80,7 @@ const CameraPage = () => {
       >
         {/* <img src="/images/other/Camera_Button.png" alt="" /> */}
       </button>
-      {recordedChunks.length > 0 && (
+      {videoUrl && (
         <div className="videoContainer">
           <div className="videoBox">
             <video
