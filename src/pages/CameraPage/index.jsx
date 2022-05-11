@@ -21,6 +21,7 @@ const CameraPage = () => {
       handleDataAvailable
     );
     mediaRecorderRef.current.start();
+    setPlayState(true);
   }, [webcamRef, mediaRecorderRef]);
 
   const handleDataAvailable = React.useCallback(
@@ -46,16 +47,18 @@ const CameraPage = () => {
   }, [recordedChunks]);
 
   const handleDownload = () => {
-    alert("Downloading now");
-    // const a = document.createElement("a");
-    // document.body.appendChild(a);
-    // a.style = "display: none";
-    // a.href = url;
-    // a.download = "react-webcam-stream-capture.webm";
-    // a.click();
-    // window.URL.revokeObjectURL(url);
-    // setRecordedChunks([]);
-    // }
+    setPlayState(false);
+    const blob = new Blob(recordedChunks, {
+      type: "video/webm",
+    });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    document.body.appendChild(a);
+    a.style = "display: none";
+    a.href = url;
+    a.download = "react-webcam-stream-capture.webm";
+    a.click();
+    window.URL.revokeObjectURL(url);
   };
   return (
     <div className="cameraPage mainPage">
