@@ -96,7 +96,7 @@ const CameraPage = () => {
           </div>
         </div>
       )}
-       <div className="videoContainer">
+       {/* <div className="videoContainer">
           <div className="videoBox">
             <video width='302' height='390' controls autoplay>
                 <source src={videoUrl} type="video/webm" />
@@ -110,7 +110,7 @@ const CameraPage = () => {
               />
             </button>
           </div>
-        </div>
+        </div> */}
     </div>
   );
 };
