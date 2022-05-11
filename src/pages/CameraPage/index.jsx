@@ -34,7 +34,6 @@ const CameraPage = () => {
 
   const handleStopCaptureClick = React.useCallback(() => {
     mediaRecorderRef.current.stop();
-    handlePreview();
   }, [mediaRecorderRef, webcamRef]);
 
   const handlePreview = React.useCallback(() => {
@@ -103,9 +102,44 @@ const CameraPage = () => {
                 alt=""
               />
             </button>
+            <button
+              className="previewCloseBtn iconBtn"
+              onClick={() => setRecordedChunks([])}
+            >
+              <img
+                src="/images/other/close_btn.png"
+                alt=""
+                width="31px"
+                height="31px"
+              />
+            </button>
           </div>
         </div>
       )}
+      <div className="videoContainer">
+        <div className="videoBox">
+          <video
+            src={videoUrl}
+            width="302px"
+            height="390px"
+            controls
+            autoPlay="true"
+            title="video"
+          />
+          <button
+            className={playState ? "btPlay active" : "btPlay"}
+            onClick={handlePreview}
+          ></button>
+          <button className="iconBtn downloadBtn" onClick={handleDownload}>
+            <img
+              src="/images/other/download.png"
+              width="50px"
+              height="50px"
+              alt=""
+            />
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
