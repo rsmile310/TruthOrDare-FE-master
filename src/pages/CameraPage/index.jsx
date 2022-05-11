@@ -86,13 +86,13 @@ const CameraPage = () => {
               title="video"
               type="video/webm"
             >
-              <source
+              {/* <source
                 src={videoUrl}
                 width="302px"
                 height="390px"
                 type="video/webm"
                 controls
-              />
+              /> */}
             </video>
             {/* <video src={videoUrl} allow="camera; microphone;" title="video" /> */}
             {/* <video width="302" height="390" controls autoplay>
