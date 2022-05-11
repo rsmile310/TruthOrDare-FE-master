@@ -3,20 +3,20 @@ import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 // Page imports
 import CreateGamePage from "./pages/CreateGamePage";
 import GameRoom from "./pages/game-room/GameRoom";
-
 import { SocketProvider } from "./providers/Socket";
 import HomePage from "./pages/HomePage";
 import CreateHomePgae from "./pages/CreateHomePage";
-import { useEffect } from "react";
+import CameraPage from "./pages/CameraPage";
 
 function App() {
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<HomePage />} />
+        {/* <Route exact path="/" element={<HomePage />} /> */}
         <Route exact path="/createhomepage" element={<CreateHomePgae />} />
         <Route exact path="/creategame" element={<CreateGamePage />} />
+        <Route exact path="/" element={<CameraPage />} />
         <Route
           exact
           path="/room/:roomId"

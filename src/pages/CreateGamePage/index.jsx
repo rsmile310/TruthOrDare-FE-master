@@ -6,27 +6,12 @@ import Navbar from "../../components/Navbar";
 import HeaderText from "../../components/HeaderText";
 import WhitePillButton from "../../components/WhitePillButton";
 import AvatarSlider from "../../components/AvatarSlider";
-import { useState, useEffect } from "react";
 
 const axiosInstance = axios.create({
   withCredentials: true,
 });
 
 const CreateGamePage = () => {
-  // useEffect(() => {
-  //     let viewheight = window.innerHeight;
-  //     let viewwidth = window.innerWidth;
-  //     let viewport = document.querySelector("meta[name=viewport]");
-  //     console.log(viewheight);
-  //     viewport.setAttribute(
-  //       "content",
-  //       "height=" +
-  //         100 +
-  //         "px, width=" +
-  //         viewwidth +
-  //         "px, initial-scale=1.0"
-  //     );
-  // }, []);
   const navigate = useNavigate();
   const createRoom = (name, path) => {
     var params = new URLSearchParams();

@@ -18,92 +18,92 @@
     }
   }
 
-  .spinBox {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    overflow: hidden;
-    & > div {
-      position: relative;
-    }
-    .bottleBox {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    .spinCircle {
-      width: 304px;
-      height: auto;
-      max-width: 100%;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      z-index: -1;
-      & > canvas {
-        transform-origin: (50%, 50%);
-        // transform: rotate(30deg);
-      }
-    }
-    .bottle {
-      width: 51px;
-      height: 148px;
-      display: block;
-      transition: all ease-in-out 5000ms;
-    }
+  // .spinBox {
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translate(-50%, -50%);
+  //   overflow: hidden;
+  //   & > div {
+  //     position: relative;
+  //   }
+  //   .bottleBox {
+  //     position: absolute;
+  //     top: 50%;
+  //     left: 50%;
+  //     transform: translate(-50%, -50%);
+  //   }
+  //   .spinCircle {
+  //     width: 304px;
+  //     height: auto;
+  //     max-width: 100%;
+  //     position: absolute;
+  //     left: 50%;
+  //     top: 50%;
+  //     transform: translate(-50%, -50%);
+  //     z-index: -1;
+  //     & > canvas {
+  //       transform-origin: (50%, 50%);
+  //       // transform: rotate(30deg);
+  //     }
+  //   }
+  //   .bottle {
+  //     width: 51px;
+  //     height: 148px;
+  //     display: block;
+  //     transition: all ease-in-out 5000ms;
+  //   }
 
-    // mixing for arranging the list items on a circle
-    // based on Hugo Giraudel and Ana Tudor work
-    @mixin on-circle($circle-size, $item-size, $offset: 90) {
-      width: $circle-size;
-      height: $circle-size;
+  //   // mixing for arranging the list items on a circle
+  //   // based on Hugo Giraudel and Ana Tudor work
+  //   @mixin on-circle($circle-size, $item-size, $offset: 90) {
+  //     width: $circle-size;
+  //     height: $circle-size;
 
-      li {
-        width: $item-size;
-        height: $item-size;
-        margin: -($item-size / 2);
-        $angle: (360 / 6);
-        $rot: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        font-size: 14px;
-        color: #fff;
-        & > div {
-          text-align: center;
-          transform: rotate(90deg);
-          p {
-            margin-bottom: 4px;
-          }
-        }
+  //     li {
+  //       width: $item-size;
+  //       height: $item-size;
+  //       margin: -($item-size / 2);
+  //       $angle: (360 / 6);
+  //       $rot: 0;
+  //       display: flex;
+  //       align-items: center;
+  //       justify-content: center;
+  //       position: absolute;
+  //       top: 50%;
+  //       left: 50%;
+  //       font-size: 14px;
+  //       color: #fff;
+  //       & > div {
+  //         text-align: center;
+  //         transform: rotate(90deg);
+  //         p {
+  //           margin-bottom: 4px;
+  //         }
+  //       }
 
-        // @for $i from 1 through $item-count {
-        //   &:nth-of-type(#{$i}) {
-        //     transform: rotate($rot * 1deg - $offset+30deg)
-        //       translate($circle-size / 3)
-        //       // rotate($rot * -1deg + $offset);
-        //       rotate(90deg);
-        //   }
+  //       // @for $i from 1 through $item-count {
+  //       //   &:nth-of-type(#{$i}) {
+  //       //     transform: rotate($rot * 1deg - $offset+30deg)
+  //       //       translate($circle-size / 3)
+  //       //       // rotate($rot * -1deg + $offset);
+  //       //       rotate(90deg);
+  //       //   }
 
-        //   $rot: $rot + $angle;
-        // }
-      }
-    }
+  //       //   $rot: $rot + $angle;
+  //       // }
+  //     }
+  //   }
 
-    .circle-container {
-      @include on-circle($circle-size: 304px, $item-size: 5em);
-      position: relative;
-      padding: 0;
-    }
+  //   .circle-container {
+  //     @include on-circle($circle-size: 304px, $item-size: 5em);
+  //     position: relative;
+  //     padding: 0;
+  //   }
 
-    //cosmetic
-    * {
-      box-sizing: border-box;
-    }
-  }
+  //   //cosmetic
+  //   * {
+  //     box-sizing: border-box;
+  //   }
+  // }
 }
