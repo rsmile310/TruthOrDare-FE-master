@@ -79,12 +79,9 @@ const CameraPage = () => {
         <div className="videoContainer">
           <div className="videoBox">
             {/* <video src={videoUrl} allow="camera; microphone;" title="video" /> */}
-            <video
-              width="302"
-              height="390"
-              src={videoUrl}
-              autoPlay="true"
-            ></video>
+            <video width='302' height='390' controls autoplay>
+                <source src={videoUrl} type="video/webm" />
+            </video>
             <button className="iconBtn downloadBtn" onClick={handleDownload}>
               <img
                 src="/images/other/download.png"
@@ -93,11 +90,11 @@ const CameraPage = () => {
                 alt=""
               />
             </button>
+            <h1>aa={videoUrl}</h1>
           </div>
-          <h1>{videoUrl}</h1>
         </div>
       )}
-      {/* <div className="videoContainer">
+       {/* <div className="videoContainer">
           <div className="videoBox">
             <video width='302' height='390' controls autoplay>
                 <source src={videoUrl} type="video/webm" />
