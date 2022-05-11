@@ -91,7 +91,7 @@ const CameraPage = () => {
               title="video"
             />
             <div>hehe={videoUrl}</div>
-            <button className="iconBtn downloadBtn" onClick={handleDownload}>
+            <button className="iconBtn downloadBtn" onClick={handlePreview}>
               <img
                 src="/images/other/download.png"
                 width="50px"
