@@ -40,6 +40,7 @@ const CameraPage = () => {
       const url = window.URL.createObjectURL(blob);
       setVideoUrl(url);
       // window.URL.revokeObjectURL(url);
+      alert(blob)
     }
   }, [mediaRecorderRef, webcamRef]);
 
