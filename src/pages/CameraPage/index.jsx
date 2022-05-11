@@ -33,7 +33,14 @@ const CameraPage = () => {
 
   const handleStopCaptureClick = React.useCallback(() => {
     mediaRecorderRef.current.stop();
-    // handleDownload();
+    if (recordedChunks.length) {
+      const blob = new Blob(recordedChunks, {
+        type: "video/webm",
+      });
+      const url = window.URL.createObjectURL(blob);
+      setVideoUrl(url);
+      window.URL.revokeObjectURL(url);
+    }
   }, [mediaRecorderRef, webcamRef]);
 
   const handleDownload = React.useCallback(() => {
@@ -41,7 +48,7 @@ const CameraPage = () => {
       const blob = new Blob(recordedChunks, {
         type: "video/webm",
       });
-      const url = URL.createObjectURL(blob);
+      const url = window.URL.createObjectURL(blob);
       // const a = document.createElement("a");
       // document.body.appendChild(a);
       // a.style = "display: none";
