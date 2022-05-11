@@ -33,7 +33,7 @@ const CameraPage = () => {
 
   const handleStopCaptureClick = React.useCallback(() => {
     mediaRecorderRef.current.stop();
-    setTimeout(() => handlePreview, 1000);
+    setTimeout(handlePreview, 1000);
   }, [mediaRecorderRef, webcamRef]);
 
   const handlePreview = React.useCallback(() => {
