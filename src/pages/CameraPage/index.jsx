@@ -51,12 +51,20 @@ const CameraPage = () => {
       type: "video/webm",
     });
     const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    document.body.appendChild(a);
+    a.style = "display: none";
+    a.href = url;
+    a.download = "react-webcam-stream-capture.webm";
+    a.click();
+    window.URL.revokeObjectURL(url);
+
     if (navigator.share) {
       navigator
         .share({
           title: "web.dev",
           text: "Check out web.dev.",
-          url: url,
+          url: a,
         })
         .then(() => alert("Successful share"))
         .catch((error) => alert("Error sharing", error));
@@ -65,13 +73,6 @@ const CameraPage = () => {
     //   type: "video/webm",
     // });
     // const url = window.URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    document.body.appendChild(a);
-    a.style = "display: none";
-    a.href = url;
-    a.download = "react-webcam-stream-capture.webm";
-    a.click();
-    window.URL.revokeObjectURL(url);
   };
   const handlePreviewClose = () => {
     setRecordedChunks([]);
@@ -137,14 +138,14 @@ const CameraPage = () => {
           </div>
         </div>
       )}
-      {/* <video
+      <video
         src="blob:https://deluxe-flan-32b73a.netlify.app/fe27e1a6-8e0a-45b2-817d-97851e1bb142"
         width="202px"
         height="190px"
         controls
         autoPlay="true"
         title="video"
-      /> */}
+      />
     </div>
   );
 };
