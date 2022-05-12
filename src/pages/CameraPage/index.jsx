@@ -69,20 +69,31 @@ const CameraPage = () => {
     //     .then(() => alert("Successful share"))
     //     .catch((error) => alert("Error sharing", error));
     // }
-
     const filesArray = document.querySelector(".preVideo");
-    if (navigator.share) {
-      navigator
-        .share({
-          files: filesArray,
-          title: "Vacation Pictures",
-          text: "Photos from September 27 to October 14.",
-        })
-        .then(() => alert("Share was successful."))
-        .catch((error) => alert("Sharing failed", error));
+    if (navigator.canShare && navigator.canShare({ files: filesArray })) {
+      navigator.share({
+        files: filesArray,
+        title: 'Vacation Pictures',
+        text: 'Photos from September 27 to October 14.',
+      })
+      .then(() => alert('Share was successful.'))
+      .catch((error) => alert('Sharing failed', error));
     } else {
       alert(`Your system doesn't support sharing files.`);
     }
+
+    // if (navigator.share) {
+    //   navigator
+    //     .share({
+    //       files: filesArray,
+    //       title: "Vacation Pictures",
+    //       text: "Photos from September 27 to October 14.",
+    //     })
+    //     .then(() => alert("Share was successful."))
+    //     .catch((error) => alert("Sharing failed", error));
+    // } else {
+    //   alert(`Your system doesn't support sharing files.`);
+    // }
     // const blob = new Blob(recordedChunks, {
     //   type: "video/webm",
     // });
