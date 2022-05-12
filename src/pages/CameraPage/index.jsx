@@ -57,8 +57,7 @@ const CameraPage = () => {
     navigator
       .share({
         files: files,
-        title: "Vacation Pictures",
-        text: "Photos from September 27 to October 14.",
+        title: "Film the moment",
       })
       .then(() => alert("Share was successful."))
       .catch((error) => alert("Sharing failed", error));
