@@ -45,6 +45,7 @@ const CameraPage = () => {
     const url = window.URL.createObjectURL(blob);
     setVideoUrl(url);
   }, [recordedChunks]);
+
   const urlToFile = async (url) => {
     const response = await fetch(url);
     const blob = await response.blob();
@@ -77,8 +78,8 @@ const CameraPage = () => {
     // const filesArray = document.getElementsByClassName(".closeImage");
     // alert(filesArray);
     // alert("filesArray");
-    const video = document.querySelector(".preVideo");
-    const file = await urlToFile(video);
+    // const video = document.querySelector(".preVideo");
+    const file = await urlToFile(videoUrl);
     const files = [file];
     navigator
       .share({
