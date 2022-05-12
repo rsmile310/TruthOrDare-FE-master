@@ -77,7 +77,8 @@ const CameraPage = () => {
     // const filesArray = document.getElementsByClassName(".closeImage");
     // alert(filesArray);
     // alert("filesArray");
-    const file = await urlToFile("/images/other/bottle1.png");
+    const video = document.querySelector(".preVideo");
+    const file = await urlToFile(video);
     const files = [file];
     navigator
       .share({
