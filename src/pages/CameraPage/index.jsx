@@ -69,12 +69,12 @@ const CameraPage = () => {
     //     .then(() => alert("Successful share"))
     //     .catch((error) => alert("Error sharing", error));
     // }
-    const filesArray = document.querySelector(".closeImage");
+    const filesArray = document.getElementsByClassName(".closeImage");
     alert(filesArray);
     alert("filesArray");
     navigator
       .share({
-        files: filesArray,
+        files: filesArray[0],
         title: "Vacation Pictures",
         text: "Photos from September 27 to October 14.",
       })
