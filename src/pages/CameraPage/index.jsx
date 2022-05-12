@@ -47,27 +47,29 @@ const CameraPage = () => {
   }, [recordedChunks]);
 
   const handleDownload = () => {
-    const blob = new Blob(recordedChunks, {
-      type: "video/webm",
-    });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    document.body.appendChild(a);
-    a.style = "display: none";
-    a.href = url;
-    a.download = "react-webcam-stream-capture.webm";
-    a.click();
-    window.URL.revokeObjectURL(url);
-
-    if (navigator.share) {
+    // const blob = new Blob(recordedChunks, {
+    //   type: "video/webm",
+    // });
+    // const url = window.URL.createObjectURL(blob);
+    // const a = document.createElement("a");
+    // document.body.appendChild(a);
+    // a.style = "display: none";
+    // a.href = url;
+    // a.download = "react-webcam-stream-capture.webm";
+    // a.click();
+    // window.URL.revokeObjectURL(url);
+    const filesArray = document.querySelector(".preVideo");
+    if (navigator.canShare && navigator.canShare({ files: filesArray })) {
       navigator
         .share({
-          title: "web.dev",
-          text: "Check out web.dev.",
-          url: videoUrl,
+          files: filesArray,
+          title: "Vacation Pictures",
+          text: "Photos from September 27 to October 14.",
         })
-        .then(() => alert("Successful share"))
-        .catch((error) => alert("Error sharing", error));
+        .then(() => alert("Share was successful."))
+        .catch((error) => alert("Sharing failed", error));
+    } else {
+      alert(`Your system doesn't support sharing files.`);
     }
     // const blob = new Blob(recordedChunks, {
     //   type: "video/webm",
@@ -111,8 +113,8 @@ const CameraPage = () => {
               controls
               autoPlay="true"
               title="video"
+              className="preVideo"
             />
-            <h1>videoUrl</h1>
             <button
               className={playState ? "btPlay active" : "btPlay"}
               onClick={handlePreview}
