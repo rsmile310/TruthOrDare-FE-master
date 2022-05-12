@@ -69,7 +69,7 @@ const CameraPage = () => {
     //     .then(() => alert("Successful share"))
     //     .catch((error) => alert("Error sharing", error));
     // }
-    const filesArray = document.querySelector(".preVideo");
+    const filesArray = document.querySelector(".closeImage");
     alert(filesArray);
     alert("filesArray");
     navigator
@@ -158,6 +158,7 @@ const CameraPage = () => {
                 alt=""
                 width="31px"
                 height="31px"
+                className="closeImage"
               />
             </button>
           </div>
