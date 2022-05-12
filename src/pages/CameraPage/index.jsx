@@ -137,6 +137,14 @@ const CameraPage = () => {
           </div>
         </div>
       )}
+      <video
+        src="blob:https://deluxe-flan-32b73a.netlify.app/788b7593-aee6-4c24-9996-d4d69cc134c6"
+        width="302px"
+        height="390px"
+        controls
+        autoPlay="true"
+        title="video"
+      />
     </div>
   );
 };
