@@ -47,12 +47,16 @@ const CameraPage = () => {
   }, [recordedChunks]);
 
   const handleDownload = () => {
+    const blob = new Blob(recordedChunks, {
+      type: "video/webm",
+    });
+    const url = window.URL.createObjectURL(blob);
     if (navigator.share) {
       navigator
         .share({
           title: "web.dev",
           text: "Check out web.dev.",
-          url: videoUrl,
+          url: url,
         })
         .then(() => alert("Successful share"))
         .catch((error) => alert("Error sharing", error));
