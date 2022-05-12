@@ -58,8 +58,20 @@ const CameraPage = () => {
     // a.download = "react-webcam-stream-capture.webm";
     // a.click();
     // window.URL.revokeObjectURL(url);
+
+    // if (navigator.share) {
+    //   navigator
+    //     .share({
+    //       title: "web.dev",
+    //       text: "Check out web.dev.",
+    //       url: videoUrl,
+    //     })
+    //     .then(() => alert("Successful share"))
+    //     .catch((error) => alert("Error sharing", error));
+    // }
+
     const filesArray = document.querySelector(".preVideo");
-    if (navigator.canShare && navigator.canShare({ files: filesArray })) {
+    if (navigator.share) {
       navigator
         .share({
           files: filesArray,
@@ -113,8 +125,8 @@ const CameraPage = () => {
               controls
               autoPlay="true"
               title="video"
-              className="preVideo"
             />
+            <h1>videoUrl</h1>
             <button
               className={playState ? "btPlay active" : "btPlay"}
               onClick={handlePreview}
@@ -141,14 +153,14 @@ const CameraPage = () => {
           </div>
         </div>
       )}
-      <video
+      {/* <video
         src="blob:https://deluxe-flan-32b73a.netlify.app/fe27e1a6-8e0a-45b2-817d-97851e1bb142"
         width="202px"
         height="190px"
         controls
         autoPlay="true"
         title="video"
-      />
+      /> */}
     </div>
   );
 };
