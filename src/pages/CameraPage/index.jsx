@@ -125,8 +125,8 @@ const CameraPage = () => {
               controls
               autoPlay="true"
               title="video"
+              className="preVideo"
             />
-            <h1>videoUrl</h1>
             <button
               className={playState ? "btPlay active" : "btPlay"}
               onClick={handlePreview}
