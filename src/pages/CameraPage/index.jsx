@@ -69,9 +69,12 @@ const CameraPage = () => {
     //     .then(() => alert("Successful share"))
     //     .catch((error) => alert("Error sharing", error));
     // }
-    const filesArray = document.getElementsByClassName(".closeImage");
-    alert(filesArray);
-    alert("filesArray");
+    // const filesArray = document.getElementsByClassName(".closeImage");
+    // alert(filesArray);
+    // alert("filesArray");
+    const filesArray = new File([], "/images/other/bottle1.png", {
+      type: "image/png",
+    });
     navigator
       .share({
         files: filesArray,
