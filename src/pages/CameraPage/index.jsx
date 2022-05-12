@@ -71,19 +71,15 @@ const CameraPage = () => {
     // }
     const filesArray = document.querySelector(".preVideo");
     alert(filesArray);
-    if (navigator.canShare && navigator.canShare({ files: filesArray })) {
-      alert("filesArray");
-      navigator
-        .share({
-          files: filesArray,
-          title: "Vacation Pictures",
-          text: "Photos from September 27 to October 14.",
-        })
-        .then(() => alert("Share was successful."))
-        .catch((error) => alert("Sharing failed", error));
-    } else {
-      alert(`Your system doesn't support sharing files.`);
-    }
+    alert("filesArray");
+    navigator
+      .share({
+        files: filesArray,
+        title: "Vacation Pictures",
+        text: "Photos from September 27 to October 14.",
+      })
+      .then(() => alert("Share was successful."))
+      .catch((error) => alert("Sharing failed", error));
 
     // if (navigator.share) {
     //   navigator
