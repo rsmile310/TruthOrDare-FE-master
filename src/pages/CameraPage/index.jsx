@@ -47,19 +47,18 @@ const CameraPage = () => {
   }, [recordedChunks]);
 
   const handleDownload = () => {
-    alert("hey")
-    if (navigator.canShare && navigator.canShare({ files: videoUrl })) {
+    if (navigator.share) {
       navigator
         .share({
-          files: videoUrl,
-          title: "Vacation Pictures",
-          text: "Photos from September 27 to October 14.",
+          title: "web.dev",
+          text: "Check out web.dev.",
+          url: "https://web.dev/",
         })
-        .then(() => alert("Share was successful."))
-        .catch((error) => alert("Sharing failed", error));
-    } else {
-      alert(`Your system doesn't support sharing files.`);
+        .then(() => alert("Successful share"))
+        .catch((error) => alert("Error sharing", error));
     }
+    alert("hey");
+
     // const blob = new Blob(recordedChunks, {
     //   type: "video/webm",
     // });
