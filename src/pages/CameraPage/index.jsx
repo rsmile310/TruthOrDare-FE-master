@@ -47,17 +47,29 @@ const CameraPage = () => {
   }, [recordedChunks]);
 
   const handleDownload = () => {
-    const blob = new Blob(recordedChunks, {
-      type: "video/webm",
-    });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    document.body.appendChild(a);
-    a.style = "display: none";
-    a.href = url;
-    a.download = "react-webcam-stream-capture.webm";
-    a.click();
-    window.URL.revokeObjectURL(url);
+    if (navigator.canShare && navigator.canShare({ files: videoUrl })) {
+      navigator
+        .share({
+          files: videoUrl,
+          title: "Vacation Pictures",
+          text: "Photos from September 27 to October 14.",
+        })
+        .then(() => alert("Share was successful."))
+        .catch((error) => alert("Sharing failed", error));
+    } else {
+      console.log(`Your system doesn't support sharing files.`);
+    }
+    // const blob = new Blob(recordedChunks, {
+    //   type: "video/webm",
+    // });
+    // const url = window.URL.createObjectURL(blob);
+    // const a = document.createElement("a");
+    // document.body.appendChild(a);
+    // a.style = "display: none";
+    // a.href = url;
+    // a.download = "react-webcam-stream-capture.webm";
+    // a.click();
+    // window.URL.revokeObjectURL(url);
   };
   const handlePreviewClose = () => {
     setRecordedChunks([]);
