@@ -47,6 +47,7 @@ const CameraPage = () => {
   }, [recordedChunks]);
 
   const handleDownload = () => {
+    alert("hey")
     if (navigator.canShare && navigator.canShare({ files: videoUrl })) {
       navigator
         .share({
@@ -57,7 +58,7 @@ const CameraPage = () => {
         .then(() => alert("Share was successful."))
         .catch((error) => alert("Sharing failed", error));
     } else {
-      console.log(`Your system doesn't support sharing files.`);
+      alert(`Your system doesn't support sharing files.`);
     }
     // const blob = new Blob(recordedChunks, {
     //   type: "video/webm",
