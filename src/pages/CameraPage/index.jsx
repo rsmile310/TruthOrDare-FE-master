@@ -7,7 +7,6 @@ import Webcam from "react-webcam";
 const CameraPage = () => {
   const webcamRef = React.useRef(null);
   const mediaRecorderRef = React.useRef(null);
-  // const [capturing, setCapturing] = React.useState(false);
   const [recordedChunks, setRecordedChunks] = React.useState([]);
   const [videoUrl, setVideoUrl] = React.useState("");
   const [playState, setPlayState] = React.useState(true);
@@ -49,36 +48,10 @@ const CameraPage = () => {
   const urlToFile = async (url) => {
     const response = await fetch(url);
     const blob = await response.blob();
-    const file = new File([blob], "video.webm", {type: 'video/webm'});
+    const file = new File([blob], "video.webm", { type: "video/webm" });
     return file;
   };
   const handleDownload = async () => {
-    // const blob = new Blob(recordedChunks, {
-    //   type: "video/webm",
-    // });
-    // const url = window.URL.createObjectURL(blob);
-    // const a = document.createElement("a");
-    // document.body.appendChild(a);
-    // a.style = "display: none";
-    // a.href = url;
-    // a.download = "react-webcam-stream-capture.webm";
-    // a.click();
-    // window.URL.revokeObjectURL(url);
-
-    // if (navigator.share) {
-    //   navigator
-    //     .share({
-    //       title: "web.dev",
-    //       text: "Check out web.dev.",
-    //       url: videoUrl,
-    //     })
-    //     .then(() => alert("Successful share"))
-    //     .catch((error) => alert("Error sharing", error));
-    // }
-    // const filesArray = document.getElementsByClassName(".closeImage");
-    // alert(filesArray);
-    // alert("filesArray");
-    // const video = document.querySelector(".preVideo");
     const file = await urlToFile(videoUrl);
     const files = [file];
     navigator
@@ -89,23 +62,6 @@ const CameraPage = () => {
       })
       .then(() => alert("Share was successful."))
       .catch((error) => alert("Sharing failed", error));
-
-    // if (navigator.share) {
-    //   navigator
-    //     .share({
-    //       files: filesArray,
-    //       title: "Vacation Pictures",
-    //       text: "Photos from September 27 to October 14.",
-    //     })
-    //     .then(() => alert("Share was successful."))
-    //     .catch((error) => alert("Sharing failed", error));
-    // } else {
-    //   alert(`Your system doesn't support sharing files.`);
-    // }
-    // const blob = new Blob(recordedChunks, {
-    //   type: "video/webm",
-    // });
-    // const url = window.URL.createObjectURL(blob);
   };
   const handlePreviewClose = () => {
     setRecordedChunks([]);
@@ -125,15 +81,12 @@ const CameraPage = () => {
       <div className="cameraBox">
         <Webcam audio={false} ref={webcamRef} />
       </div>
-
       <button
         className="captureBtn iconBtn"
         onTouchStart={() => handleStartCaptureClick()}
         onTouchEnd={() => handleStopCaptureClick()}
         style={{ backgroundImage: "url(/images/other/Camera_Button.png" }}
-      >
-        {/* <img src="/images/other/Camera_Button.png" alt="" /> */}
-      </button>
+      ></button>
       {recordedChunks.length > 0 && (
         <div className="videoContainer">
           <div className="videoBox">
@@ -173,14 +126,6 @@ const CameraPage = () => {
           </div>
         </div>
       )}
-      {/* <video
-        src="blob:https://deluxe-flan-32b73a.netlify.app/fe27e1a6-8e0a-45b2-817d-97851e1bb142"
-        width="202px"
-        height="190px"
-        controls
-        autoPlay="true"
-        title="video"
-      /> */}
     </div>
   );
 };
