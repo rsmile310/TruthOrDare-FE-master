@@ -49,7 +49,7 @@ const CameraPage = () => {
   const urlToFile = async (url) => {
     const response = await fetch(url);
     const blob = await response.blob();
-    const file = new File([blob], "video.webm", { type: blob.type });
+    const file = new File([blob], "video.webm", {type: 'video/webm'});
     return file;
   };
   const handleDownload = async () => {
