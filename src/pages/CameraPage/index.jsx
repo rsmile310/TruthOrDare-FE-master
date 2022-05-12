@@ -70,6 +70,7 @@ const CameraPage = () => {
     //     .catch((error) => alert("Error sharing", error));
     // }
     const filesArray = document.querySelector(".preVideo");
+    alert(filesArray);
     if (navigator.canShare && navigator.canShare({ files: filesArray })) {
       alert("filesArray");
       navigator
