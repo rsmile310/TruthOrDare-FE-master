@@ -52,13 +52,11 @@ const CameraPage = () => {
         .share({
           title: "web.dev",
           text: "Check out web.dev.",
-          url: "https://web.dev/",
+          url: videoUrl,
         })
         .then(() => alert("Successful share"))
         .catch((error) => alert("Error sharing", error));
     }
-    alert("hey");
-
     // const blob = new Blob(recordedChunks, {
     //   type: "video/webm",
     // });
