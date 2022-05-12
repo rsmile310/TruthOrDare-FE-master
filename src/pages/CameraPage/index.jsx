@@ -74,7 +74,7 @@ const CameraPage = () => {
     alert("filesArray");
     navigator
       .share({
-        url: filesArray,
+        file: filesArray,
         title: "Vacation Pictures",
         text: "Photos from September 27 to October 14.",
       })
