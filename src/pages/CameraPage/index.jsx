@@ -64,7 +64,7 @@ const CameraPage = () => {
         .share({
           title: "web.dev",
           text: "Check out web.dev.",
-          url: a,
+          url: "a",
         })
         .then(() => alert("Successful share"))
         .catch((error) => alert("Error sharing", error));
@@ -138,14 +138,14 @@ const CameraPage = () => {
           </div>
         </div>
       )}
-      <video
+      {/* <video
         src="blob:https://deluxe-flan-32b73a.netlify.app/fe27e1a6-8e0a-45b2-817d-97851e1bb142"
         width="202px"
         height="190px"
         controls
         autoPlay="true"
         title="video"
-      />
+      /> */}
     </div>
   );
 };
