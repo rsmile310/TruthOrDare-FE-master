@@ -45,8 +45,13 @@ const CameraPage = () => {
     const url = window.URL.createObjectURL(blob);
     setVideoUrl(url);
   }, [recordedChunks]);
-
-  const handleDownload = () => {
+  const urlToFile = async (url) => {
+    const response = await fetch(url);
+    const blob = await response.blob();
+    const file = new File([blob], "image.jpg", { type: blob.type });
+    return file;
+  };
+  const handleDownload = async () => {
     // const blob = new Blob(recordedChunks, {
     //   type: "video/webm",
     // });
@@ -72,12 +77,13 @@ const CameraPage = () => {
     // const filesArray = document.getElementsByClassName(".closeImage");
     // alert(filesArray);
     // alert("filesArray");
-    const filesArray = new File([], "/images/other/bottle1.png", {
-      type: "image/png",
-    });
+    const file = await urlToFile(
+      "https://images.unsplash.com/photo-1575535468632-345892291673?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+    );
+    const files = [file];
     navigator
       .share({
-        files: filesArray,
+        files: files,
         title: "Vacation Pictures",
         text: "Photos from September 27 to October 14.",
       })
