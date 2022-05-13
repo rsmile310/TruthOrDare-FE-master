@@ -2,11 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-import {
-  SERVER_URL,
-  GAME_STATUS,
-  LOBBY_STATUS,
-} from "../../const";
+import { SERVER_URL, GAME_STATUS, LOBBY_STATUS } from "../../const";
 import {
   debug,
   defaultName,
@@ -31,6 +27,7 @@ import EndRound from "../../components/EndRound/EndRound";
 import PlayAgain from "../../components/PlayAgain/PlayAgain";
 import JoinForm from "../../components/JoinForm";
 import GameLobbyPage from "../GameLobbyPage";
+import Navbar from "../../components/Navbar";
 
 const axiosInstance = axios.create({
   withCredentials: true,
@@ -39,7 +36,7 @@ const axiosInstance = axios.create({
 const GameRoom = () => {
   const socket = useContext(SocketContext);
   const [name, setName] = useState(defaultName);
-  const [avatar, setAvatar] = useState('');
+  const [avatar, setAvatar] = useState("");
   const { roomId } = useParams(defaultRoomId);
   const [roomFound, setRoomFound] = useState(defaultRoomFound);
   const [roomError, setRoomError] = useState("");
@@ -49,15 +46,22 @@ const GameRoom = () => {
   const [actions, setActions] = useState(defaultActions);
   const [action, setAction] = useState(defaultAction);
   const [gameRoom, setGameRoom] = useState(defaultGameRoom);
+  const [truthOrDareState, setTruthOrDareState] = useState("");
+  const [openModal, setOpenModal] = useState(false);
 
   const handleNameSubmit = (name, avatar) => {
     const myName = name;
     localStorage.setItem(`tod-name-${roomId}`, myName);
-    localStorage.setItem('avatar', avatar);
+    localStorage.setItem("avatar", avatar);
     setName(myName);
     setAvatar(avatar);
   };
-
+  const handleOpenModal = (e) => {
+    setOpenModal(e);
+  };
+  // useEffect(() => {
+  //   setTruthOrDareState(gameRoom.room.truthOrDare);
+  // }, [gameRoom.room.truthOrDare]);
   useEffect(() => {
     if (debug) return;
     const checkRoomExists = () => {
@@ -83,7 +87,7 @@ const GameRoom = () => {
     if (socket && roomFound && name) {
       socket.emit("join-room", { roomId: roomId, name: name, avatar: avatar });
     }
-  }, [socket, roomFound, name,roomId,avatar]);
+  }, [socket, roomFound, name, roomId, avatar]);
 
   useEffect(() => {
     if (debug) return;
@@ -118,6 +122,9 @@ const GameRoom = () => {
       socket.on("action-selection", (actions) => {
         setActions(actions);
       });
+      socket.on("tord-selection", (truthOrDare) => {
+        setTruthOrDareState(truthOrDare);
+      });
 
       socket.on("action-reveal", (winningAction) => {
         setAction(winningAction);
@@ -129,6 +136,7 @@ const GameRoom = () => {
         socket.off("players-updated");
         socket.off("timer");
         socket.off("action-selection");
+        socket.off("tord-selection");
         socket.off("action-reveal");
       };
     }
@@ -136,6 +144,7 @@ const GameRoom = () => {
 
   return (
     <div className={styles.gameRoom}>
+      <Navbar openModal={openModal} />
       {roomError !== "" ? (
         <>
           <h1>{roomError}</h1>
@@ -144,15 +153,14 @@ const GameRoom = () => {
         <JoinForm handleNameSubmit={handleNameSubmit} />
       ) : (
         <>
-          {
-            gameRoom.room.lobbyStatus === LOBBY_STATUS.LOBBY &&
+          {gameRoom.room.lobbyStatus === LOBBY_STATUS.LOBBY && (
             <GameLobbyPage
               players={players}
               room={gameRoom.room}
               lobbyOwner={gameRoom.lobbyOwner}
               roomId={roomId}
             />
-          }
+          )}
           {gameRoom.room.lobbyStatus === LOBBY_STATUS.GAME && (
             <>
               {gameRoom.room.gameStatus === GAME_STATUS.CHOOSING_PLAYER && (
@@ -167,7 +175,7 @@ const GameRoom = () => {
               {gameRoom.room.gameStatus === GAME_STATUS.ACTION_VOTE && (
                 <ActionSelection
                   currentPlayer={gameRoom.currentPlayer}
-                  truthOrDare={gameRoom.room.truthOrDare}
+                  truthOrDare={truthOrDareState}
                   actions={actions}
                   timer={timer}
                 />
@@ -180,10 +188,16 @@ const GameRoom = () => {
                 />
               )}
               {gameRoom.room.gameStatus === GAME_STATUS.RATING && (
-                <ActionRating currentPlayer={gameRoom.currentPlayer} truthOrDare={gameRoom.room.truthOrDare} />
+                <ActionRating
+                  currentPlayer={gameRoom.currentPlayer}
+                  truthOrDare={gameRoom.room.truthOrDare}
+                />
               )}
               {gameRoom.room.gameStatus === GAME_STATUS.ROUND_END && (
-                <EndRound currentPlayer={gameRoom.currentPlayer} />
+                <EndRound
+                  currentPlayer={gameRoom.currentPlayer}
+                  handleOpenModal={handleOpenModal}
+                />
               )}
             </>
           )}

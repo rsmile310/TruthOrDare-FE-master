@@ -1,0 +1,47 @@
+.bottomModalContainer {
+  display: block;
+  .blackOpcityBox {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($color: #000000, $alpha: 0.7);
+    opacity: 0;
+    transition: all ease 500ms;
+    z-index: -1;
+  }
+  .blackOpcityBox.active {
+    display: block;
+    opacity: 1;
+    z-index: 0;
+  }
+  .bottomModalBox {
+    background-size: cover;
+    background-position: top center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    transform: translateY(100%);
+    transition: transform ease 500ms;
+    hr {
+      width: 135px;
+      border-bottom: 5px solid #fff;
+    }
+    .modalHeader p {
+      text-align: center;
+      font-family: "IntroLipton-SemiBold";
+      color: #fff;
+      font-size: 18px;
+    }
+    .modalBody {
+      div:last-child {
+        margin-bottom: 19px !important;
+      }
+    }
+  }
+  .bottomModalBox.active {
+    transform: translateY(0);
+  }
+}

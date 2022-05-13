@@ -2,10 +2,10 @@
 import "./style.scss";
 // import { PLAYER_STATUS } from "../../const";
 // import { SocketContext } from "../../providers/Socket";
-import Navbar from "../Navbar";
 import { useEffect, useRef, useState } from "react";
 import { Pie } from "react-chartjs-2";
 import { Chart, ArcElement } from "chart.js";
+import HeaderText from "../HeaderText";
 Chart.register(ArcElement);
 
 const PlayerSelection = ({ players, currentPlayer }) => {
@@ -122,7 +122,9 @@ const PlayerSelection = ({ players, currentPlayer }) => {
           "url(/images/other/FRA-Second-Player---Player-Pick---BACKGROUND.jpg)",
       }}
     >
-      <Navbar />
+      <div className="headerTextBox">
+        <HeaderText text="WHO WILL IT BE?" />
+      </div>
       <div className="spinBox">
         <div>
           <ul className="circle-container">

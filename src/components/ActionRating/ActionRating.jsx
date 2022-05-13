@@ -1,7 +1,6 @@
 import styles from "./ActionRating.module.scss";
 import { useContext } from "react";
 import { SocketContext } from "../../providers/Socket";
-import Navbar from "../Navbar";
 import ActionRatingStart from "./ActionRatingStart";
 import ActionRatingWait from "./ActionRatingWait";
 
@@ -13,7 +12,6 @@ const ActionRating = ({ currentPlayer, truthOrDare }) => {
 
   return (
     <div className={styles.actionRating}>
-      <Navbar />
       {currentPlayer.socketId === socket.id ? (
         <ActionRatingWait truthOrDare={truthOrDare} />
       ) : (

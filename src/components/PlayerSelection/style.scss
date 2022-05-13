@@ -93,4 +93,11 @@
       box-sizing: border-box;
     }
   }
+  .headerTextBox {
+    position: fixed;
+    top: 93px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
 }

@@ -1,5 +1,75 @@
-.navBarBox {
-  margin: 20px 0 0 36px;
-  position: fixed;
-  z-index: 2;
+.navbar {
+  .nav-icon-open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 20px 0 0 36px;
+    z-index: 99;
+  }
+  .nav-container {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    z-index: 2;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.5s ease;
+    z-index: 100;
+    .nav-icon-close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 20px 36px 0 0;
+    }
+    .nav-item {
+      width: 100%;
+      padding: 8px 16px;
+      border-top: 1px solid #fff;
+      box-sizing: border-box;
+    }
+    .nav-item:last-child {
+      border-bottom: 1px solid #fff;
+    }
+    .nav-menu {
+      display: flex;
+      flex-direction: column;
+      width: 302px;
+      max-width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      list-style: none;
+      padding: 0;
+    }
+    .nav-links {
+      width: 100%;
+      font-family: "IntroLipton-SemiBold";
+      color: #fff;
+      font-size: 18px;
+      display: flex;
+      justify-content: space-between;
+      p {
+        margin: 0;
+      }
+      img {
+        width: 18px;
+        height: auto;
+        margin: auto 0;
+      }
+    }
+    .navTextBox h1 {
+      font-family: "LiptonHighlight";
+      color: #fff;
+      font-size: 38px;
+      margin-top: 62px;
+      text-align: center;
+    }
+  }
+}
+
+.nav-container.active {
+  left: 0;
 }

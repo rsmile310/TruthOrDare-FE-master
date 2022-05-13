@@ -1,16 +1,16 @@
-import styles from './EndRound.module.scss'
+import styles from "./EndRound.module.scss";
 import { useContext } from "react";
 import { SocketContext } from "../../providers/Socket";
 import LoadingTextIcon from "../LoadingTextIcon";
-import Navbar from "../Navbar";
-import WhitePillButton from '../WhitePillButton';
+import WhitePillButton from "../WhitePillButton";
+import BottomModal from "../BottomModal";
 
-const EndRound = ({ currentPlayer }) => {
+const EndRound = ({ currentPlayer,handleOpenModal }) => {
   // useEffect(()=>{
   //   console.log(currentPlayer)
   // },[])
   const socket = useContext(SocketContext);
-    console.log(socket)
+  console.log(socket);
   const nextRound = () => {
     socket.emit("next-round");
   };
@@ -20,8 +20,13 @@ const EndRound = ({ currentPlayer }) => {
   };
 
   return (
-    <div className='mainPage' style={{backgroundImage: 'url(/images/other/FRA-First-Player---End-Round-Rating-_-Next---BACKGROUND.jpg)'}}>
-      <Navbar />
+    <div
+      className="mainPage"
+      style={{
+        backgroundImage:
+          "url(/images/other/FRA-First-Player---End-Round-Rating-_-Next---BACKGROUND.jpg)",
+      }}
+    >
       <div className={styles.textBox}>
         <p>THAT WAS...</p>
         <h1>BRILLIANT</h1>
@@ -29,11 +34,11 @@ const EndRound = ({ currentPlayer }) => {
 
       {currentPlayer.socketId === socket.id ? (
         <div className={styles.btnBox}>
-          <WhitePillButton onStart={nextRound} text={'NEXT ROUND'} />
-          <WhitePillButton onStart={endGame} text={'END GAME'} />
+          <WhitePillButton onStart={nextRound} text={"NEXT ROUND"} />
+          <BottomModal onStart={endGame} handleOpenModal ={handleOpenModal} />
         </div>
       ) : (
-        <LoadingTextIcon text={'Waiting for the next round<br /> to begin…'}/>
+        <LoadingTextIcon text={"Waiting for the next round<br /> to begin…"} />
       )}
     </div>
   );

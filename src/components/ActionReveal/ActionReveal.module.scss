@@ -3,7 +3,7 @@
   height: 100vh;
   background-size: cover;
   background-position: center;
-  h1 {
+  .playerName {
     position: fixed;
     top: 19%;
     left: 0;
@@ -16,7 +16,8 @@
   }
   .texBox {
     position: fixed;
-    top: 45%;
+    top: 50%;
+    transform: translateY(-50%);
     width: 100%;
     text-align: center;
     padding: 0 16px;
@@ -30,13 +31,16 @@
   .btnBox {
     position: fixed;
     left: 0;
-    bottom: 49px;
+    bottom: 29px;
     width: 100%;
     text-align: center;
     button {
       height: 40px;
       font-family: "IntroLipton-black";
       font-size: 24px !important;
+    }
+    button:first-child{
+      margin-bottom: 20px;
     }
   }
 }

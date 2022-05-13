@@ -4,7 +4,6 @@ import { SocketContext } from "../../providers/Socket";
 import { PLAYER_STATUS } from "../../const";
 import WhitePillButton from "../WhitePillButton";
 import Player from "./Player";
-// import LoadingIcon from '/images/other/loading.svg'
 
 const Lobby = ({ players, room, lobbyOwner }) => {
   const socket = useContext(SocketContext);

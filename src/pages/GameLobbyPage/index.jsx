@@ -1,13 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import "./style.scss";
 import { useEffect, useState } from "react";
-
+import { useLocation } from "react-router-dom";
 import HeaderText from "../../components/HeaderText";
 import Lobby from "../../components/Lobby/Lobby";
 import Navbar from "../../components/Navbar";
 import LoadingIcon from "../../components/LoadingIcon/LoadIcon";
+import { DOMAIN_URL } from "../../const";
+import QRCode from "qrcode.react";
 
 const GameLobbyPage = (props) => {
+  const { pathname } = useLocation();
   const { players, room, lobbyOwner } = props;
   const [data, setData] = useState({});
   const temp = "Waiting for " + players[0].name + " to<br /> start the game...";
@@ -37,7 +40,11 @@ const GameLobbyPage = (props) => {
     >
       <Navbar />
       <HeaderText text={data.headerText} />
-      {lobbyOwner && <img className="qrcode" width='132px' height='132px' src="/images/other/QR Code@3x.png" alt="" />}
+      {lobbyOwner && (
+        <div className="qrcode">
+          <QRCode value={DOMAIN_URL + pathname} />
+        </div>
+      )}
       {!lobbyOwner ? (
         <div className="loadingIconBox">
           <LoadingIcon />

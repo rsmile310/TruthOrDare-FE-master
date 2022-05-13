@@ -5,17 +5,17 @@ import CreateGamePage from "./pages/CreateGamePage";
 import GameRoom from "./pages/game-room/GameRoom";
 import { SocketProvider } from "./providers/Socket";
 import CreateHomePgae from "./pages/CreateHomePage";
-import CameraPage from "./pages/CameraPage";
+import HomePage from "./pages/HomePage";
+import BottomModal from "./components/BottomModal";
 
 function App() {
-
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route exact path="/" element={<HomePage />} /> */}
+        <Route exact path="/" element={<HomePage />} />
+        <Route exact path="/bot" element={<BottomModal />} />
         <Route exact path="/createhomepage" element={<CreateHomePgae />} />
         <Route exact path="/creategame" element={<CreateGamePage />} />
-        <Route exact path="/" element={<CameraPage />} />
         <Route
           exact
           path="/room/:roomId"

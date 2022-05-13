@@ -16,3 +16,27 @@
 .textBox {
   margin: 0 auto;
 }
+.mainTextBox {
+  p {
+    font-family: "IntroLipton-Black";
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    span {
+      font-size: 18px;
+      text-shadow: #28348b 2pt 2pt 0pt;
+    }
+  }
+  p:first-child {
+    position: fixed;
+    left: 8%;
+    top: 41%;
+    transform: rotate(-11deg);
+  }
+  p:nth-child(2){
+    position: fixed;
+    right: 9%;
+    top: 49%;
+    transform: rotate(22deg);
+  }
+}
